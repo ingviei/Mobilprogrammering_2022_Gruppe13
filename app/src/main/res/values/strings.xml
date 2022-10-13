@@ -4,4 +4,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="btnToday">I DAG</string>
+    <string name="btnThisWeek">DENNE UKA</string>
+
+
 </resources>
