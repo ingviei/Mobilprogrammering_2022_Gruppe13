@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/todo_items.xml" value="0.1" />
+        <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/fragment_dashboard.xml" value="0.264" />
+        <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/fragment_notifications.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/ingvi/Documents/studier_host_2022/Mobilprogrammering/Mobilprogrammering_2022_Gruppe13/app/src/main/res/layout/todo_items.xml" value="0.16" />
       </map>
     </option>
   </component>
