@@ -89,3 +89,4 @@ lint/tmp/
 **/projectFilesBackup
 .DS_STORE
 
+.idea/misc.xml
