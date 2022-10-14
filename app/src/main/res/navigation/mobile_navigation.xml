@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="no.gruppe13.hiof.taskmanager.ui.notifications.NotificationsFragment"
+        android:name="no.gruppe13.hiof.taskmanager.ui.calendar.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

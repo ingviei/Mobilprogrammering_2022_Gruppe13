@@ -1,4 +1,4 @@
-package no.gruppe13.hiof.taskmanager.ui.notifications
+package no.gruppe13.hiof.taskmanager.ui.calendar
 
 import android.os.Bundle
 import android.view.LayoutInflater

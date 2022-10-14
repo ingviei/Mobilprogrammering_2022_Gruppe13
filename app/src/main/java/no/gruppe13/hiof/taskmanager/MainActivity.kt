@@ -40,8 +40,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Ny kode under
-
+        // Idag knapp
         val todayButton = findViewById<Button>(R.id.btnToday)
 
         todayButton.setOnClickListener{
