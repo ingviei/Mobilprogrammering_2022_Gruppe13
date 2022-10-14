@@ -36,11 +36,11 @@ class MainActivity : AppCompatActivity() {
         // Ny kode under
         val todayButton = findViewById<Button>(R.id.btnToday)
 
-        binding.todayButton.setOnClickListener {
+       /* binding.todayButton.setOnClickListener {
             val otherActivityIntent = Intent(it.context, OtherActivity::class.java)
             val userText = binding.inputEditText.text.toString()
             otherActivityIntent.putExtra(OtherActivity.KEY_NAME, userText)
             startActivity(otherActivityIntent)
-        }
+        }*/
     }
 }

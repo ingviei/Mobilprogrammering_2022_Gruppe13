@@ -5,5 +5,5 @@ import no.gruppe13.hiof.taskmanager.databinding.ActivityMainBinding
 
 class TodoItems : AppCompatActivity() {
 
-    private lateinit var binding: ActivityItemsBinding
+//    private lateinit var binding: ActivityItemsBinding
 }
