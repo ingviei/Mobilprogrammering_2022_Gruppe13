@@ -11,7 +11,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Gjøremål:"
+        android:text="@string/gjoeremaal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:minHeight="48dp"
-        android:hint="Navn på gjøremål"
+        android:hint="@string/gjoeremaal_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task" />
@@ -31,8 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="Navn på gjøremål"
-        android:text="Dato:"
+        android:text="@string/dato"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_input" />
 
@@ -42,7 +41,7 @@
         android:layout_height="0dp"
         android:layout_margin="0dp"
         android:padding="0dp"
-        android:text="Velg"
+        android:text="@string/velg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date"
         app:layout_constraintBottom_toBottomOf="@+id/date_input"
@@ -55,7 +54,7 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:minHeight="48dp"
-        android:hint="Frist / dato"
+        android:hint="@string/frist_dato"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pick_date_btn"
         app:layout_constraintTop_toBottomOf="@+id/date" />
@@ -65,8 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="Legg til klokkeslett"
-        android:text="Tid:"
+        android:hint="@string/legg_til_klokkeslett"
+        android:text="@string/tid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_input" />
 
@@ -76,7 +75,7 @@
         android:layout_height="0dp"
         android:layout_margin="0dp"
         android:padding="0dp"
-        android:text="Velg"
+        android:text="@string/velg_tid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time"
         app:layout_constraintBottom_toBottomOf="@+id/time_input"
@@ -89,7 +88,7 @@
         android:layout_height="wrap_content"
         android:inputType="time"
         android:minHeight="48dp"
-        android:hint="Klokkeslett"
+        android:hint="@string/klokkeslett"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pick_time_btn"
         app:layout_constraintTop_toBottomOf="@+id/time" />
@@ -99,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Kommentar:"
+        android:text="@string/kommentar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_input" />
 
@@ -107,7 +106,7 @@
         android:id="@+id/comment_input"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:hint="Legg til en kommentar"
+        android:hint="@string/legg_til_en_kommentar"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         android:textAlignment="viewStart"
@@ -119,7 +118,7 @@
         android:id="@+id/create_task_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opprett gjøremål"
+        android:text="@string/opprett_gjoeremaal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,5 +10,18 @@
     <string name="todoItem">Vaske bilen</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gjoeremaal">Gjøremål:</string>
+    <string name="navn_paa_gjoeremaal">Navn på gjøremål</string>
+    <string name="dato">Dato:</string>
+    <string name="kommentar">Kommentar:</string>
+    <string name="opprett_gjoeremaal">Opprett gjøremål</string>
+    <string name="velg">Velg</string>
+    <string name="frist_dato">Frist / dato</string>
+    <string name="gjoeremaal_input">Navn på gjøremål</string>
+    <string name="legg_til_en_kommentar">Legg til en kommentar</string>
+    <string name="velg_tid">Velg</string>
+    <string name="tid">Tid:</string>
+    <string name="legg_til_klokkeslett">Legg til klokkeslett</string>
+    <string name="klokkeslett">Klokkeslett</string>
 
 </resources>
