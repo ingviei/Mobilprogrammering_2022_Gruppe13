@@ -1,9 +1,13 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import no.gruppe13.hiof.taskmanager.databinding.ActivityMainBinding
 
 class TodoItems : AppCompatActivity() {
 
-//    private lateinit var binding: ActivityItemsBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.todo_items)
+    }
+
 }

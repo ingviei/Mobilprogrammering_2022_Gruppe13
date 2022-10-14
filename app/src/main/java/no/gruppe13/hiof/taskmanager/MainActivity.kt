@@ -1,5 +1,6 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -34,13 +35,14 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         // Ny kode under
+
         val todayButton = findViewById<Button>(R.id.btnToday)
 
-       /* binding.todayButton.setOnClickListener {
-            val otherActivityIntent = Intent(it.context, OtherActivity::class.java)
-            val userText = binding.inputEditText.text.toString()
-            otherActivityIntent.putExtra(OtherActivity.KEY_NAME, userText)
-            startActivity(otherActivityIntent)
-        }*/
+        todayButton.setOnClickListener{
+            Intent(this,TodoItems::class.java).also{
+                startActivity(it)
+            }
+        }
+
     }
 }
