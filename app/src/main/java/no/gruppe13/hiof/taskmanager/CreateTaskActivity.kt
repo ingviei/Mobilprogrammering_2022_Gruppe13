@@ -1,8 +1,10 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.ActivityMainBinding
 
@@ -21,10 +23,30 @@ class CreateTaskActivity : AppCompatActivity() {
                 binding.dateInput.setText(result)
                 // Do something with the result
             }
+
+        supportFragmentManager
+            .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
+                // We use a String here, but any type that can be put in a Bundle is supported
+                val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
+                binding.timeInput.setText(result)
+            }
+
+        binding.createTaskButton.setOnClickListener {
+            val context = binding.createTaskButton.context
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+            val toast = Toast.makeText(this, "Gjøremål opprettet!", Toast.LENGTH_SHORT)
+            toast.show()
+        }
     }
 
     fun showDatePickerDialog(v: View) {
         val newFragment = DatePickerFragment()
         newFragment.show(supportFragmentManager, "datePicker")
+    }
+
+    fun showTimePickerDialog(v: View) {
+        val newFragment = TimePickerFragment()
+        newFragment.show(supportFragmentManager, "timePicker")
     }
 }
