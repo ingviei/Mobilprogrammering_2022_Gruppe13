@@ -1,6 +1,7 @@
 package no.gruppe13.hiof.taskmanager
 
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,5 +32,15 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // Ny kode under
+        val todayButton = findViewById<Button>(R.id.btnToday)
+
+        binding.todayButton.setOnClickListener {
+            val otherActivityIntent = Intent(it.context, OtherActivity::class.java)
+            val userText = binding.inputEditText.text.toString()
+            otherActivityIntent.putExtra(OtherActivity.KEY_NAME, userText)
+            startActivity(otherActivityIntent)
+        }
     }
 }
