@@ -21,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.addTaskButton.setOnClickListener {
+            val context = binding.addTaskButton.context
+            val intent = Intent(context, CreateTaskActivity::class.java)
+            context.startActivity(intent)
+        }
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
