@@ -1,5 +1,6 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.addTaskButton.setOnClickListener {
+            val context = binding.addTaskButton.context
+            val intent = Intent(context, CreateTaskActivity::class.java)
+            context.startActivity(intent)
+        }
 
         val navView: BottomNavigationView = binding.navView
 
