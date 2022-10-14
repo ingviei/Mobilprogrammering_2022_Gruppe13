@@ -18,15 +18,12 @@ class CreateTaskActivity : AppCompatActivity() {
 
         supportFragmentManager
             .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
-                // We use a String here, but any type that can be put in a Bundle is supported
                 val result = bundle.getString(DatePickerFragment.FORMATTED_DATE_KEY)
                 binding.dateInput.setText(result)
-                // Do something with the result
             }
 
         supportFragmentManager
             .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
-                // We use a String here, but any type that can be put in a Bundle is supported
                 val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
                 binding.timeInput.setText(result)
             }
