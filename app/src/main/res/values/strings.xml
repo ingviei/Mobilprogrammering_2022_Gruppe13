@@ -2,7 +2,7 @@
     <string name="app_name">TaskManager</string>
     <string name="title_home">Hjem</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Kalender</string>
+    <string name="title_calendar">Kalender</string>
 
     // Nye strings
     <string name="btnToday">I DAG</string>
