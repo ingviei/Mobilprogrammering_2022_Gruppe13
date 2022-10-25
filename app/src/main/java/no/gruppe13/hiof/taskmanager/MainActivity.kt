@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
             context.startActivity(intent)
         }
 
-        binding.addCategoryButton.setOnClickListener {
-            val context = binding.addCategoryButton.context
+        binding.floatingActionButtonAddCategoryButton.setOnClickListener {
+            val context = binding.floatingActionButtonAddCategoryButton.context
             val intent = Intent(context, CreateCategoryActivity::class.java)
             context.startActivity(intent)
         }

@@ -26,5 +26,7 @@
     <string name="kategori">Kategori</string>
     <string name="navn_paa_kategori">Navn på kategori</string>
     <string name="opprett_kategori">Opprett kategori</string>
+    <string name="legg_til_oppgave">Legg til oppgave</string>
+    <string name="add_category">add_category</string>
 
 </resources>
