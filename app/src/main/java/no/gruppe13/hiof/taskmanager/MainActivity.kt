@@ -27,6 +27,12 @@ class MainActivity : AppCompatActivity() {
             context.startActivity(intent)
         }
 
+        binding.addCategoryButton.setOnClickListener {
+            val context = binding.addCategoryButton.context
+            val intent = Intent(context, CreateCategoryActivity::class.java)
+            context.startActivity(intent)
+        }
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)

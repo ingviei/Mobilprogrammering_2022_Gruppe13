@@ -23,5 +23,8 @@
     <string name="tid">Tid:</string>
     <string name="legg_til_klokkeslett">Legg til klokkeslett</string>
     <string name="klokkeslett">Klokkeslett</string>
+    <string name="kategori">Kategori</string>
+    <string name="navn_paa_kategori">Navn på kategori</string>
+    <string name="opprett_kategori">Opprett kategori</string>
 
 </resources>
