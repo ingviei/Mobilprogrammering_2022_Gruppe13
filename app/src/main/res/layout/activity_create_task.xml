@@ -19,12 +19,32 @@
         android:id="@+id/task_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="@string/gjoeremaal_input"
         android:inputType="text"
         android:minHeight="48dp"
-        android:hint="@string/gjoeremaal_input"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/task" />
+
+    <TextView
+        android:id="@+id/pick_category"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/velg_kategori"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task_input" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pick_category" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="328dp" />
 
     <TextView
         android:id="@+id/date"
@@ -33,7 +53,7 @@
         android:layout_marginStart="8dp"
         android:text="@string/dato"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_input" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Button
         android:id="@+id/pick_date_btn"

@@ -28,5 +28,6 @@
     <string name="opprett_kategori">Opprett kategori</string>
     <string name="legg_til_oppgave">Legg til oppgave</string>
     <string name="add_category">add_category</string>
+    <string name="velg_kategori">Velg kategori:</string>
 
 </resources>
