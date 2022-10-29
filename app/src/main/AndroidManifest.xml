@@ -19,7 +19,9 @@
         <activity android:name=".TodoItems" />
         <activity
             android:name=".CreateTaskActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+<!--        Code for line above from source:  https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility-->
         <activity
             android:name=".MainActivity"
             android:exported="true"
