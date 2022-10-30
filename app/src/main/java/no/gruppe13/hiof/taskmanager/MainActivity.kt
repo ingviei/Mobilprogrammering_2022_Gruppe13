@@ -21,12 +21,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.addTaskButton.setOnClickListener {
-            val context = binding.addTaskButton.context
-            val intent = Intent(context, CreateTaskActivity::class.java)
-            context.startActivity(intent)
-        }
-
         binding.floatingActionButtonAddCategoryButton.setOnClickListener {
             val context = binding.floatingActionButtonAddCategoryButton.context
             val intent = Intent(context, CreateCategoryActivity::class.java)
@@ -36,8 +30,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_calendar
@@ -46,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Idag knappen
-        val todayButton = findViewById<Button>(R.id.btnToday)
 
+        val todayButton = findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
             Intent(this,TodoItems::class.java).also{
                 startActivity(it)

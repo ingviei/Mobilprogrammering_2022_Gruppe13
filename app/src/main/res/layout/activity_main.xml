@@ -5,8 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    android:paddingTop="?attr/actionBarSize">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -38,8 +38,8 @@
         android:id="@+id/btnToday"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_margin="2dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btnToday"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/btnThisWeek"
@@ -52,8 +52,8 @@
         android:id="@+id/btnThisWeek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_margin="2dp"
+        android:layout_marginTop="10dp"
         android:text="@string/btnThisWeek"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,14 +61,15 @@
         app:layout_constraintStart_toEndOf="@+id/btnToday"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <!--    Slettes, blitt flyttet til todoItems-->
+    <!--<Button
         android:id="@+id/add_task_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/legg_til_oppgave"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="@id/nav_host_fragment_activity_main"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />-->
 
     <!--<Button
         android:id="@+id/add_category_button"
@@ -83,12 +84,12 @@
         android:id="@+id/floatingActionButton_add_category_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:clickable="true"
         android:contentDescription="@string/add_category"
-        app:layout_constraintBottom_toTopOf="@+id/add_task_button"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        android:focusable="true" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
