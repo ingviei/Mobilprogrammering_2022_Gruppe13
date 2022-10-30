@@ -90,3 +90,4 @@ lint/tmp/
 .DS_STORE
 
 .idea/misc.xml
+.idea/deploymentTargetDropDown.xml
