@@ -22,10 +22,12 @@
 
         <activity
             android:name=".TodoItems"
+            android:label="Dagens gjøremål"
             android:exported="false"/>
 
         <activity
             android:name=".CreateTaskActivity"
+            android:label="Opprett nytt gjøremål"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
             android:parentActivityName=".TodoItems">
