@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 data class Task (var title : String, var category: String, var date : String, var time : String, var comment : String) {
 
     @PrimaryKey(autoGenerate = true)
-    var uid : Int = 0
+    var id : Int = 0
 
 }
