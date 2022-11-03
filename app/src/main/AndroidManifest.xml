@@ -13,22 +13,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager"
         tools:targetApi="31">
+
         <activity
             android:name=".CreateCategoryActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".TodoItems" />
+            android:windowSoftInputMode="adjustResize" />
+        <!--        Code for line above from source:  https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility-->
+
+        <activity
+            android:name=".TodoItems"
+            android:label="Dagens gjøremål"
+            android:exported="false"/>
+
         <activity
             android:name=".CreateTaskActivity"
+            android:label="Opprett nytt gjøremål"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
-<!--        Code for line above from source:  https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility-->
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".TodoItems">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="no.gruppe13.hiof.taskmanager.TodoItems" />
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

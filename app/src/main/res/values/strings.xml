@@ -4,6 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_calendar">Kalender</string>
 
+
     // Nye strings
     <string name="btnToday">I DAG</string>
     <string name="btnThisWeek">DENNE UKA</string>

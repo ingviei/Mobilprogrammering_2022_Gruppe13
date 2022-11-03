@@ -24,10 +24,10 @@ interface TaskDao {
 
     @Query("SELECT * FROM task")
     fun getAllTasks(): Flow<List<Task>>
-//    Bytte ut med fun getAllTasks(): Array<Task> ??? Ref. https://developer.android.com/training/data-storage/room/accessing-data
+//    Bytte ut med fun getAllTasks(): Array<Task> eller List<Task> ??? Ref. https://developer.android.com/training/data-storage/room/accessing-data
 
-    @Query("SELECT * FROM task WHERE uid = :taskUid") // Bytte ut med bare uid?
-    fun getTask(taskUid: Int): Flow<Task>
+    @Query("SELECT * FROM task WHERE id = :taskId")
+    fun getTask(taskId: Int): Flow<Task>
 
     @Query("DELETE FROM task")
     suspend fun deleteAll()
