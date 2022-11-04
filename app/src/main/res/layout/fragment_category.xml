@@ -11,11 +11,10 @@
         android:id="@+id/category_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
+
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="225dp"
         tools:context=".MainActivity"
         app:layout_constraintTop_toBottomOf="@id/btnToday"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
-
 </FrameLayout>
