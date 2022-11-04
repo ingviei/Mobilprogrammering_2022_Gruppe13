@@ -1,12 +1,10 @@
 package no.gruppe13.hiof.taskmanager
 
 import android.os.Bundle
-import kotlinx.coroutines.flow.collect
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +14,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.CategoryAdapter
 import no.gruppe13.hiof.taskmanager.data.category.Category
-import no.gruppe13.hiof.taskmanager.databinding.CategoryListItemBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCategoryBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
@@ -75,22 +72,18 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.categoryRecyclerView
-        //recyclerView = binding.categoryName.parent as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val categoryAdapter = CategoryAdapter
-        val c = CategoryAdapter()
-        recyclerView.adapter = c//categoryAdapter(this.onItemClicked(Category(0,"A", "B")))
+        val categoryAdapter = CategoryAdapter()
+        recyclerView.adapter = categoryAdapter
 
         GlobalScope.launch(Dispatchers.IO) {
             lifecycle.coroutineScope.launch {
                 viewModel.allCategories().collect() {
-                    c.submitList(it)
+                    categoryAdapter.submitList(it)
                 }
             }
         }
-
-        //ToDo: Check actions from database tutorial
     }
 
     companion object {

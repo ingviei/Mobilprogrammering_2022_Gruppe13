@@ -14,7 +14,6 @@ class TaskManagerViewModelFactory(
         if (modelClass.isAssignableFrom(
                 TaskManagerViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            //return TaskManagerViewModel(categoryDao) as T
             return TaskManagerViewModel(taskDao, categoryDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
