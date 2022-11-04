@@ -93,4 +93,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <fragment
+        android:id="@+id/category_fragment"
+        android:name="no.gruppe13.hiof.taskmanager.CategoryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/btnToday"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="225dp"
+        tools:context=".MainActivity"
+        />
+    <!--<androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/category_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="225dp"
+        tools:context=".MainActivity"
+        app:layout_constraintTop_toBottomOf="@id/btnToday"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

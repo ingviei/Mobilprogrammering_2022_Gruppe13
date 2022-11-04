@@ -4,6 +4,7 @@
     package="no.gruppe13.hiof.taskmanager">
 
     <application
+        android:name="no.gruppe13.hiof.taskmanager.TaskManagerApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

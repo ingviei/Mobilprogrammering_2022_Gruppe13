@@ -2,6 +2,8 @@ package no.gruppe13.hiof.taskmanager
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.activityViewModels
+
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +11,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.RecyclerView
 import no.gruppe13.hiof.taskmanager.databinding.ActivityMainBinding
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
