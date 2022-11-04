@@ -36,14 +36,14 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
 
-       /* val todayButton = findViewById<Button>(R.id.btnToday)
+        val todayButton = findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
             supportFragmentManager.beginTransaction().apply{
                 replace(R.id.fl_fragment, todayFragment)
                 addToBackStack(null)
                 commit()
             }
-        }*/
+        }
 
         binding.floatingActionButtonAddCategoryButton.setOnClickListener {
             val context = binding.floatingActionButtonAddCategoryButton.context
@@ -64,12 +64,13 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        val todayButton = findViewById<Button>(R.id.btnToday)
+        // TodayButton on main site - to be changed to fragment
+       /* val todayButton = findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
             Intent(this,TodoItems::class.java).also{
                 startActivity(it)
             }
-        }
+        }*/
 
 
 
