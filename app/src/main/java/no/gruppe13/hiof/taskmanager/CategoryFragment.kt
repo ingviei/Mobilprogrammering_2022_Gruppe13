@@ -43,7 +43,9 @@ class CategoryFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
 
     private val viewModel: TaskManagerViewModel by activityViewModels {
-        TaskManagerViewModelFactory((activity?.application as TaskManagerApplication).database.categoryDao()
+        TaskManagerViewModelFactory(
+            (activity?.application as TaskManagerApplication).database.taskDao(),
+            (activity?.application as TaskManagerApplication).database.categoryDao()
         )
     }
 

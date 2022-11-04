@@ -7,15 +7,15 @@ import no.gruppe13.hiof.taskmanager.data.TaskDao
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
 
 class TaskManagerViewModelFactory(
-    //private val taskDao: TaskManagerApplication,
+    private val taskDao: TaskDao,
     private val categoryDao: CategoryDao
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(
                 TaskManagerViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return TaskManagerViewModel(categoryDao) as T
-            //return TaskManagerViewModel(taskDao, categoryDao) as T
+            //return TaskManagerViewModel(categoryDao) as T
+            return TaskManagerViewModel(taskDao, categoryDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

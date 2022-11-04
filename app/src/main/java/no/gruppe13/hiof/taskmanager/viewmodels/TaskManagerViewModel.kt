@@ -7,8 +7,8 @@ import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
 import no.gruppe13.hiof.taskmanager.data.TaskDao
 import no.gruppe13.hiof.taskmanager.data.category.Category
 
-//class TaskManagerViewModel(private val taskDao: TaskDao, private val categoryDao: CategoryDao): ViewModel() {
-class TaskManagerViewModel(private val categoryDao: CategoryDao): ViewModel() {
-    //fun allTasks(): Flow<List<Task>> = taskDao.getAllTasks()
+class TaskManagerViewModel(private val taskDao: TaskDao, private val categoryDao: CategoryDao): ViewModel() {
+//class TaskManagerViewModel(private val categoryDao: CategoryDao): ViewModel() {
+    fun allTasks(): Flow<List<Task>> = taskDao.getAllTasks()
     fun allCategories(): Flow<List<Category>> = categoryDao.getAll()
 }

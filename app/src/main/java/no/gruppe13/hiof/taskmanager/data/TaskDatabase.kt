@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
 
-@Database(entities = [Category:: class], version = 1, exportSchema = false)
+@Database(entities = [Category:: class, Task:: class], version = 1, exportSchema = false)
 abstract class TaskDatabase : RoomDatabase (){
-    //abstract fun taskDao() : TaskDao
+    abstract fun taskDao() : TaskDao
     abstract fun categoryDao() : CategoryDao
 
     companion object {
