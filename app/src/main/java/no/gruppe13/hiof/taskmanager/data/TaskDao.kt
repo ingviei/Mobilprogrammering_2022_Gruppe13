@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskDao {
-    @Insert //legge til onConflictStrategy?
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTask(task: Task)
     // suspend is for making the database asynchronous, One shot queries
     // Legge på vararg?

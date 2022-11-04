@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
+import no.gruppe13.hiof.taskmanager.data.converters.Converters
 
 @Database(entities = [Category:: class, Task:: class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class TaskDatabase : RoomDatabase (){
     abstract fun taskDao() : TaskDao
     abstract fun categoryDao() : CategoryDao

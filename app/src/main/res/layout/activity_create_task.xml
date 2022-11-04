@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/category_input"
+        android:id="@+id/task_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/gjoeremaal_input"
@@ -34,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:text="@string/velg_kategori"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_input" />
+        app:layout_constraintTop_toBottomOf="@+id/task_input" />
 
     <Spinner
         android:id="@+id/spinner"
