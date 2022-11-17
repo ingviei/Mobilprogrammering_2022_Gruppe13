@@ -1,16 +1,23 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.R
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import no.gruppe13.hiof.taskmanager.adapter.CreateTaskCategorySpinnerAdapter
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
+import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
-import java.time.LocalDateTime
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 
 class CreateTaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateTaskBinding
@@ -19,6 +26,28 @@ class CreateTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //ToDo: Sjekk om dette er det beste stedet å deklarere viewmodel
+        val viewModel =
+            TaskManagerViewModel(
+                (this.application as TaskManagerApplication).database.taskDao(),
+                (this.application as TaskManagerApplication).database.categoryDao()
+            )
+
+        val chooseCategorySpinner: Spinner = binding.pickCategorySpinner
+        val spinnerAdapter = CreateTaskCategorySpinnerAdapter(this, R.layout.simple_spinner_item, ArrayList<Category>())
+        spinnerAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        chooseCategorySpinner.adapter = spinnerAdapter
+
+        GlobalScope.launch(Dispatchers.IO) {
+            lifecycle.coroutineScope.launch {
+                viewModel.allCategories().collect() {
+                    spinnerAdapter.clear()
+                    spinnerAdapter.addAll(it)
+
+                }
+            }
+        }
 
         supportFragmentManager
             .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
@@ -37,9 +66,11 @@ class CreateTaskActivity : AppCompatActivity() {
             val intent = Intent(context, TodoItems::class.java)
             context.startActivity(intent)
 
+            val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
             val task = Task(
                 binding.taskInput.text.toString(),
-                1,
+                //ToDo: Fix inconsistent data types PK Category vs FK Task->Category
+                selectedCategory.id.toLong(),
                 binding.dateInput.text.toString(),
                 binding.timeInput.text.toString(),
                 binding.commentInput.text.toString(),
