@@ -23,7 +23,9 @@ abstract class TaskDatabase : RoomDatabase (){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TaskDatabase::class.java,
-                    "task_database").build()
+                    "task_database")
+                    .createFromAsset("database/task_database.db")
+                    .build()
                 INSTANCE = instance
                 instance
             }
