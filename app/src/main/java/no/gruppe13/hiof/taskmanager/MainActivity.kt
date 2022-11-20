@@ -44,13 +44,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-        val todayButton = findViewById<Button>(R.id.btnToday)
+      /*  val todayButton = findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
             Intent(this,TodoItems::class.java).also{
                 startActivity(it)
-            }
+            }*/
         }
 
     }
-}
