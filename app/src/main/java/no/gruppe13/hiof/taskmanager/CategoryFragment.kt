@@ -1,12 +1,12 @@
 package no.gruppe13.hiof.taskmanager
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
@@ -73,8 +73,11 @@ class CategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.categoryRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        registerForContextMenu(recyclerView)
 
-        val categoryAdapter = CategoryAdapter()
+        val categoryAdapter = CategoryAdapter() {
+            Toast.makeText(view.context, "onclicked", Toast.LENGTH_SHORT).show()
+        }
         recyclerView.adapter = categoryAdapter
 
         GlobalScope.launch(Dispatchers.IO) {
@@ -84,6 +87,16 @@ class CategoryFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        val inflater: MenuInflater = requireActivity().menuInflater
+        inflater.inflate(R.menu.category_context_menu, menu)
     }
 
     companion object {

@@ -30,5 +30,7 @@
     <string name="legg_til_oppgave">Legg til oppgave</string>
     <string name="add_category">add_category</string>
     <string name="velg_kategori">Velg kategori:</string>
+    <string name="edit_category_text">Rediger kategori</string>
+    <string name="delete_category_text">Slett kategori</string>
 
 </resources>
