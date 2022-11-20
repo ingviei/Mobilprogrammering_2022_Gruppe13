@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="@id/nav_host_fragment_activity_main"
         app:layout_constraintStart_toStartOf="parent" />&ndash;&gt;-->
 
-   <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton_add_category_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         android:focusable="true"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />-->
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <!--<fragment
         android:id="@+id/category_fragment"
