@@ -33,5 +33,6 @@
     <string name="edit_category_text">Rediger kategori</string>
     <string name="delete_category_text">Slett kategori</string>
     <string name="update_category">Oppdater kategori</string>
+    <string name="destination_update_category">Oppdater kategori</string>
 
 </resources>

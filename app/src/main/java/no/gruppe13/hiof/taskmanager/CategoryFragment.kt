@@ -99,6 +99,18 @@ class CategoryFragment : Fragment() {
         inflater.inflate(R.menu.category_context_menu, menu)
     }
 
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.edit_category -> {
+                findNavController().navigate(R.id.action_navigation_home_to_navigation_category_update)
+            }
+            R.id.delete_category -> {
+                Toast.makeText(this.context, "delete clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onContextItemSelected(item)
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
