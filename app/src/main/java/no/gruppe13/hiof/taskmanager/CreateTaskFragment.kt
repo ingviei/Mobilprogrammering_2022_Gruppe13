@@ -90,7 +90,8 @@ class CreateTaskFragment : Fragment() {
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
-            val intent = Intent(context, TodoItems::class.java)
+            val intent = Intent(context, TodayFragment::class.java)
+            //TODO: Fix the intent so that intent toward TodayFragment works as for TodoItems
             context.startActivity(intent)
 
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
