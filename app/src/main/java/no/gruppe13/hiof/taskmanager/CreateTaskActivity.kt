@@ -1,4 +1,5 @@
 package no.gruppe13.hiof.taskmanager
+/*
 
 import android.R
 import android.content.Intent
@@ -96,4 +97,5 @@ class CreateTaskActivity : AppCompatActivity() {
         val newFragment = TimePickerFragment()
         newFragment.show(supportFragmentManager, "timePicker")
     }
-}
+    }
+ */

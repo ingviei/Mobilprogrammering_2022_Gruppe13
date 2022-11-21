@@ -6,14 +6,6 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
-    // Dashboard item skal slettes
-<!--    <item-->
-<!--        android:id="@+id/navigation_dashboard"-->
-<!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
-<!--        android:title="@string/title_dashboard" />-->
-
-
-<!--    Endrer denne til Kalender-->
     <item
         android:id="@+id/navigation_calendar"
         android:icon="@drawable/ic_baseline_calendar_today_24"

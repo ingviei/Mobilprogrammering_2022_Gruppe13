@@ -28,7 +28,11 @@
         tools:layout="@layout/fragment_today" >
         <action
             android:id="@+id/action_todayFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+           />
+        <action
+            android:id="@+id/action_todayFragment_to_createTaskFragment"
+            app:destination="@id/createTaskFragment" />
     </fragment>
 
     <fragment
@@ -50,9 +54,15 @@
             android:id="@+id/action_categoryFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/createTaskFragment"
         android:name="no.gruppe13.hiof.taskmanager.CreateTaskFragment"
         android:label="fragment_create_task"
-        tools:layout="@layout/fragment_create_task" />
+        tools:layout="@layout/fragment_create_task" >
+        <action
+            android:id="@+id/action_createTaskFragment_to_todayFragment"
+            app:destination="@id/todayFragment" />
+    </fragment>
+
 </navigation>

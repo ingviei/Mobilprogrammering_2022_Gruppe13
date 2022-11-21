@@ -27,7 +27,7 @@
             android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
         </activity>
 
-        <activity
+       <!-- <activity
             android:name=".TodoItems"
             android:label="Dagens gjøremål"
             android:exported="false"
@@ -35,9 +35,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
-        </activity>
+        </activity>-->
 
-        <activity
+      <!--  <activity
             android:name=".CreateTaskActivity"
             android:label="Opprett nytt gjøremål"
             android:exported="false"
@@ -46,7 +46,7 @@
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="no.gruppe13.hiof.taskmanager.TodoItems" />
-        </activity>
+        </activity>-->
 
         <activity
             android:name=".MainActivity"

@@ -33,6 +33,5 @@ class MainFragment : Fragment() {
             navController.navigate(R.id.action_mainFragment_to_thisWeekFragment)
         }
 
-
     }
 }

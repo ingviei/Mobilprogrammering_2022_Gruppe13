@@ -38,17 +38,19 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_calendar
+                R.id.navigation_home, R.id.navigation_calendar
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+    }
 
       /*  val todayButton = findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
             Intent(this,TodoItems::class.java).also{
                 startActivity(it)
             }*/
-        }
+
 
     }
