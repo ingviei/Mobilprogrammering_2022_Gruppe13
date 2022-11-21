@@ -9,11 +9,48 @@
         android:id="@+id/navigation_home"
         android:name="no.gruppe13.hiof.taskmanager.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+      <action
+          android:id="@+id/action_navigation_home_to_categoryFragment2"
+          app:destination="@id/categoryFragment2" />
+      <action
+          android:id="@+id/action_navigation_home_to_thisWeekFragment2"
+          app:destination="@id/thisWeekFragment2" />
+      <action
+          android:id="@+id/action_navigation_home_to_todayFragment2"
+          app:destination="@id/todayFragment2" />
+   </fragment>
 
    <fragment
         android:id="@+id/navigation_calendar"
         android:name="no.gruppe13.hiof.taskmanager.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
+   <fragment
+       android:id="@+id/categoryFragment2"
+       android:name="no.gruppe13.hiof.taskmanager.CategoryFragment"
+       android:label="fragment_category"
+       tools:layout="@layout/fragment_category" >
+      <action
+          android:id="@+id/action_categoryFragment2_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
+   <fragment
+       android:id="@+id/thisWeekFragment2"
+       android:name="no.gruppe13.hiof.taskmanager.ThisWeekFragment"
+       android:label="fragment_this_week"
+       tools:layout="@layout/fragment_this_week" >
+      <action
+          android:id="@+id/action_thisWeekFragment2_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
+   <fragment
+       android:id="@+id/todayFragment2"
+       android:name="no.gruppe13.hiof.taskmanager.TodayFragment"
+       android:label="fragment_today"
+       tools:layout="@layout/fragment_today" >
+      <action
+          android:id="@+id/action_todayFragment2_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
 </navigation>

@@ -12,6 +12,3 @@
         android:title="@string/title_calendar" />
 
 </menu>
-
-<!--    android:id="@+id/navigation_home"-->
-<!--    android:id="@+id/navigation_calendar"-->
