@@ -46,11 +46,11 @@ class HomeFragment : Fragment() {
 
         todayButton.setOnClickListener{
             val navController = it.findNavController()
-            navController.navigate(R.id.action_navigation_home_to_todayFragment2)
+            navController.navigate(R.id.action_navigation_home_to_todayFragment)
         }
         thisWeekButton.setOnClickListener{
             val navController = it.findNavController()
-            navController.navigate(R.id.action_navigation_home_to_thisWeekFragment2)
+            navController.navigate(R.id.action_navigation_home_to_thisWeekFragment)
         }
 
     }
