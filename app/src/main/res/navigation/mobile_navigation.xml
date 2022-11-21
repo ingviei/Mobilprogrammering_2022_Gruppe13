@@ -14,6 +14,9 @@
             android:id="@+id/action_navigation_home_to_navigation_category_update"
             app:destination="@id/navigation_category_update"
             app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_tasks"
+            app:destination="@id/navigation_tasks" />
     </fragment>
 
     <fragment
@@ -29,6 +32,16 @@
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
+        android:id="@+id/navigation_tasks"
+        android:name="no.gruppe13.hiof.taskmanager.TaskFragment"
+        android:label="@string/title_tasks"
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_navigation_tasks_to_navigation_create_task"
+            app:destination="@id/navigation_create_task" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_category_update"
         android:name="no.gruppe13.hiof.taskmanager.UpdateCategoryFragment"
         android:label="@string/destination_update_category"
@@ -37,4 +50,10 @@
             android:name="categoryId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_create_task"
+        android:name="no.gruppe13.hiof.taskmanager.CreateTaskFragment"
+        android:label="@string/new_task"
+        tools:layout="@layout/fragment_create_task" />
 </navigation>

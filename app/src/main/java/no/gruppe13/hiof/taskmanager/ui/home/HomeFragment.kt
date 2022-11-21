@@ -60,6 +60,12 @@ class HomeFragment : Fragment() {
             }
         }
 
+        val thisWeekButton = binding.btnThisWeek
+        thisWeekButton.setOnClickListener{
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationTasks()
+            findNavController().navigate(action)
+        }
+
 /*        val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
