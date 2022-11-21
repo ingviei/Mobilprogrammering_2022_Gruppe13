@@ -46,10 +46,11 @@
         android:clickable="true"
         android:contentDescription="@string/add_category"
         android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         />
+
 
     <!--<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_recycler_view"
