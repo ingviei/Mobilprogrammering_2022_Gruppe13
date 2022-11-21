@@ -14,6 +14,7 @@ android {
         applicationId "no.gruppe13.hiof.taskmanager"
         minSdk 21
         targetSdk 33
+        //Endret fra 32 til 33 19.11.22
         versionCode 1
         versionName "1.0"
 
