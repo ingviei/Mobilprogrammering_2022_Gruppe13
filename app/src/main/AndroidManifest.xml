@@ -27,26 +27,28 @@
             android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
         </activity>
 
-       <!-- <activity
-            android:name=".TodoItems"
-            android:label="Dagens gjøremål"
-            android:exported="false"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
-        </activity>-->
-
-      <!--  <activity
+        <activity
             android:name=".CreateTaskActivity"
             android:label="Opprett nytt gjøremål"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".TodoItems">
+            android:parentActivityName=".TodayFragment">
+<!--            Funker ikke å redirigere til Fragment, må endes -->
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="no.gruppe13.hiof.taskmanager.TodoItems" />
-        </activity>-->
+            android:value="no.gruppe13.hiof.taskmanager.TodayFragment" />
+        </activity>
+
+        <!--        TodoItems skal slettes: pga gjort om til TodayFragment-->
+        <!-- <activity
+             android:name=".TodoItems"
+             android:label="Dagens gjøremål"
+             android:exported="false"
+             android:parentActivityName=".MainActivity">
+             <meta-data
+                 android:name="android.support.PARENT_ACTIVITY"
+                 android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
+         </activity>-->
 
         <activity
             android:name=".MainActivity"

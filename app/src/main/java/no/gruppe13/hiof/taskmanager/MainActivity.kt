@@ -53,11 +53,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-      /*  val todayButton = findViewById<Button>(R.id.btnToday)
-        todayButton.setOnClickListener{
-            Intent(this,TodoItems::class.java).also{
-                startActivity(it)
-            }*/
-
-
     }

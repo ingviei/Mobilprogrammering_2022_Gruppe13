@@ -1,5 +1,5 @@
 package no.gruppe13.hiof.taskmanager
-/*
+
 
 import android.R
 import android.content.Intent
@@ -64,7 +64,8 @@ class CreateTaskActivity : AppCompatActivity() {
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
-            val intent = Intent(context, TodoItems::class.java)
+            val intent = Intent(context, TodayFragment::class.java)
+            //TODO: intent i linjen over: Byttet ut TodoItems klassen med TodayFragment - funker det eller må det skrives om?
             context.startActivity(intent)
 
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
@@ -98,4 +99,4 @@ class CreateTaskActivity : AppCompatActivity() {
         newFragment.show(supportFragmentManager, "timePicker")
     }
     }
- */
+
