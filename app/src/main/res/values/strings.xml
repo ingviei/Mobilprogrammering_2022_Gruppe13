@@ -13,21 +13,28 @@
     <string name="gjoeremaal">Gjøremål:</string>
     <string name="navn_paa_gjoeremaal">Navn på gjøremål</string>
     <string name="dato">Dato:</string>
-    <string name="kommentar">Kommentar:</string>
+    <string name="category_comment">Kommentar:</string>
     <string name="opprett_gjoeremaal">Opprett gjøremål</string>
     <string name="velg">Velg</string>
     <string name="frist_dato">Frist / dato</string>
     <string name="gjoeremaal_input">Navn på gjøremål</string>
-    <string name="legg_til_en_kommentar">Legg til en kommentar</string>
+    <string name="add_comment">Legg til en kommentar</string>
     <string name="velg_tid">Velg</string>
     <string name="tid">Tid:</string>
     <string name="legg_til_klokkeslett">Legg til klokkeslett</string>
     <string name="klokkeslett">Klokkeslett</string>
-    <string name="kategori">Kategori</string>
-    <string name="navn_paa_kategori">Navn på kategori</string>
-    <string name="opprett_kategori">Opprett kategori</string>
+    <string name="category">Kategori</string>
+    <string name="name_of_category">Navn på kategori</string>
+    <string name="create_category">Opprett kategori</string>
     <string name="legg_til_oppgave">Legg til oppgave</string>
     <string name="add_category">add_category</string>
     <string name="velg_kategori">Velg kategori:</string>
+    <string name="edit_category_text">Rediger kategori</string>
+    <string name="delete_category_text">Slett kategori</string>
+    <string name="update_category">Oppdater kategori</string>
+    <string name="destination_update_category">Oppdater kategori</string>
+    <string name="title_tasks">Oppgaver</string>
+    <string name="add_task">Legg til oppgave</string>
+    <string name="new_task">Ny oppgave</string>
 
 </resources>

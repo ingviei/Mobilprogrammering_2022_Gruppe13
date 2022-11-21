@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateCategoryActivity">
+    tools:context=".UpdateCategoryFragment">
 
     <TextView
-        android:id="@+id/create_category_name"
+        android:id="@+id/update_category_name"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/category_input"
+        android:id="@+id/update_category_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="text"
@@ -24,19 +24,19 @@
         android:hint="@string/name_of_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/create_category_name" />
+        app:layout_constraintTop_toBottomOf="@id/update_category_name" />
 
     <TextView
-        android:id="@+id/comment_category"
+        android:id="@+id/update_comment_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/category_comment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category_input" />
+        app:layout_constraintTop_toBottomOf="@id/update_category_input" />
 
     <EditText
-        android:id="@+id/comment_input"
+        android:id="@+id/update_comment_input"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:hint="@string/add_comment"
@@ -45,15 +45,15 @@
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/comment_category" />
+        app:layout_constraintTop_toBottomOf="@id/update_comment_category" />
 
     <Button
-        android:id="@+id/create_category_button"
+        android:id="@+id/update_category_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_category"
+        android:text="@string/update_category"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/comment_input"
+        app:layout_constraintTop_toBottomOf="@id/update_comment_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -1,12 +1,12 @@
 package no.gruppe13.hiof.taskmanager
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.CategoryAdapter
 import no.gruppe13.hiof.taskmanager.data.category.Category
+import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCategoryBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
@@ -60,8 +61,10 @@ class CategoryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_category, container, false)
+
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val view = binding.root
+
         return view
     }
 
@@ -73,8 +76,11 @@ class CategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.categoryRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        registerForContextMenu(recyclerView)
 
-        val categoryAdapter = CategoryAdapter()
+        val categoryAdapter = CategoryAdapter() {
+            Toast.makeText(view.context, "onclicked", Toast.LENGTH_SHORT).show()
+        }
         recyclerView.adapter = categoryAdapter
 
         GlobalScope.launch(Dispatchers.IO) {
@@ -84,6 +90,18 @@ class CategoryFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.edit_category -> {
+                findNavController().navigate(R.id.action_navigation_home_to_navigation_category_update)
+            }
+            R.id.delete_category -> {
+                Toast.makeText(this.context, "delete clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 
     companion object {
