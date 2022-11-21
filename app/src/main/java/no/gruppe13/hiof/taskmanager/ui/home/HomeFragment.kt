@@ -50,13 +50,6 @@ class HomeFragment : Fragment() {
 
         val navController = findNavController()
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_calendar
-            )
-        )
-
-
         navView.setupWithNavController(navController)
 
 

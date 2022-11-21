@@ -32,5 +32,9 @@
         android:id="@+id/navigation_category_update"
         android:name="no.gruppe13.hiof.taskmanager.UpdateCategoryFragment"
         android:label="@string/destination_update_category"
-        tools:layout="@layout/fragment_update_category" />
+        tools:layout="@layout/fragment_update_category" >
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

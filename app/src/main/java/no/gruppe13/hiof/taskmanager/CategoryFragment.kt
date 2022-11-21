@@ -2,8 +2,8 @@ package no.gruppe13.hiof.taskmanager
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
@@ -14,6 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.CategoryAdapter
 import no.gruppe13.hiof.taskmanager.data.category.Category
+import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCategoryBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
@@ -60,8 +61,10 @@ class CategoryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_category, container, false)
+
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val view = binding.root
+
         return view
     }
 
@@ -87,16 +90,6 @@ class CategoryFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onCreateContextMenu(
-        menu: ContextMenu,
-        v: View,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        val inflater: MenuInflater = requireActivity().menuInflater
-        inflater.inflate(R.menu.category_context_menu, menu)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {

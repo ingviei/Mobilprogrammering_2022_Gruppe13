@@ -1,15 +1,28 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import no.gruppe13.hiof.taskmanager.data.TaskDatabase
+import no.gruppe13.hiof.taskmanager.data.category.Category
+import no.gruppe13.hiof.taskmanager.databinding.FragmentUpdateCategoryBinding
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CATEGORY_ID = UpdateCategoryFragment.ARG_CATEGORY_ID
 
 /**
  * A simple [Fragment] subclass.
@@ -18,14 +31,21 @@ private const val ARG_PARAM2 = "param2"
  */
 class UpdateCategoryFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var categoryId: Int? = null
+    private lateinit var binding: FragmentUpdateCategoryBinding
+    private var category: Category? = null
+
+    private val viewModel: TaskManagerViewModel by activityViewModels {
+        TaskManagerViewModelFactory(
+            (activity?.application as TaskManagerApplication).database.taskDao(),
+            (activity?.application as TaskManagerApplication).database.categoryDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            categoryId = it.getInt(ARG_CATEGORY_ID)
         }
     }
 
@@ -33,8 +53,42 @@ class UpdateCategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val categoryId = arguments?.let { UpdateCategoryFragmentArgs.fromBundle(it).categoryId }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_update_category, container, false)
+
+        binding = FragmentUpdateCategoryBinding.inflate(layoutInflater, container, false)
+        val view = binding.root
+
+        GlobalScope.launch(Dispatchers.IO) {
+            lifecycle.coroutineScope.launch {
+                if (categoryId != null) {
+                    viewModel.getCategory(categoryId).collect() {
+                        binding.updateCategoryInput.setText(it.title)
+                        binding.updateCommentInput.setText(it.description)
+                        category = it
+                    }
+                }
+            }
+        }
+
+        binding.updateCategoryButton.setOnClickListener {
+            val context = binding.updateCategoryButton.context
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+
+            category?.title = binding.updateCategoryInput.text.toString()
+            category?.description = binding.updateCommentInput.text.toString()
+
+            val db = TaskDatabase.getDatabase(this.requireActivity())
+            lifecycleScope.launch{
+                category?.let { it1 -> db.categoryDao().updateCategory(it1) }
+            }
+
+            val toast = Toast.makeText(this.requireActivity(), "Kategori endret!", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+
+        return view
     }
 
     companion object {
@@ -42,18 +96,17 @@ class UpdateCategoryFragment : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
+         * @param categoryId Id of the Category to update.
          * @return A new instance of fragment UpdateCategoryFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(categoryId: Int) =
             UpdateCategoryFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_CATEGORY_ID, categoryId)
                 }
             }
+
+        const val ARG_CATEGORY_ID = "param_category_id"
     }
 }

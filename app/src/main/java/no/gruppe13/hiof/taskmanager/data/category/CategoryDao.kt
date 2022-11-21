@@ -1,9 +1,6 @@
 package no.gruppe13.hiof.taskmanager.data.category
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 import no.gruppe13.hiof.taskmanager.data.Task
 
@@ -16,4 +13,15 @@ interface CategoryDao {
     // ToDo: Decide if should be mutable
     fun getAll(): Flow<List<Category>>
 
+    @Query("SELECT * FROM task_category WHERE id = :categoryId")
+    fun getCategory(categoryId: Int): Flow<Category>
+
+    @Update
+    suspend fun updateCategory(category: Category)
+
+    @Query("DELETE FROM task_category WHERE id = :categoryId")
+    suspend fun deleteCategory(categoryId: Int)
+
+    @Query("DELETE FROM task_category")
+    suspend fun deleteAll()
 }

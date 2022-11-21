@@ -21,6 +21,7 @@ import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +29,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_calendar
-            )
-        )
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
 /*
         val navController = findNavController(R.id.nav_view)
         NavigationUI.setupActionBarWithNavController(navController, appBarConfiguration)*/
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp()
+                || super.onSupportNavigateUp()
     }
 }
