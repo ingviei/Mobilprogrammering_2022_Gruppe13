@@ -65,7 +65,8 @@ class CreateTaskActivity : AppCompatActivity() {
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
             val intent = Intent(context, TodayFragment::class.java)
-            //TODO: intent i linjen over: Byttet ut TodoItems klassen med TodayFragment - funker det eller må det skrives om?
+            //TODO: intent i linjen over: Byttet ut TodoItems klassen med TodayFragment, siden TodoItems ikke finnes lenger.Må endres så intentet sendes til fragmentet istedet
+
             context.startActivity(intent)
 
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
