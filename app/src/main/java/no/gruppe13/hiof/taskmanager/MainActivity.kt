@@ -8,6 +8,7 @@ import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -31,6 +32,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(context, CreateCategoryActivity::class.java)
             context.startActivity(intent)
         }
+
+      /*  val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        navView.setupWithNavController(navController)*/
+
 
         val navView: BottomNavigationView = binding.navView
 

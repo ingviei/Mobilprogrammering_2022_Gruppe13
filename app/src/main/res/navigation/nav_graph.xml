@@ -63,6 +63,23 @@
         <action
             android:id="@+id/action_createTaskFragment_to_todayFragment"
             app:destination="@id/todayFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+        <action
+            android:id="@+id/action_createTaskFragment_to_timePickerFragment"
+            app:destination="@id/timePickerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/datePickerFragment"
+        android:name="no.gruppe13.hiof.taskmanager.DatePickerFragment"
+        android:label="fragment_date_picker"
+        tools:layout="@layout/fragment_date_picker" />
+    <fragment
+        android:id="@+id/timePickerFragment"
+        android:name="no.gruppe13.hiof.taskmanager.TimePickerFragment"
+        android:label="fragment_time_picker"
+        tools:layout="@layout/fragment_time_picker" />
+
 
 </navigation>
