@@ -24,7 +24,6 @@ import no.gruppe13.hiof.taskmanager.adapter.CreateTaskCategorySpinnerAdapter
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
-import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import java.util.*

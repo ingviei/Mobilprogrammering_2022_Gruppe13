@@ -17,7 +17,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import no.gruppe13.hiof.taskmanager.R
-import no.gruppe13.hiof.taskmanager.TodoItems
 import no.gruppe13.hiof.taskmanager.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -53,9 +52,8 @@ class HomeFragment : Fragment() {
 
         val todayButton = binding.btnToday //findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{
-            Intent(this.requireActivity(), TodoItems::class.java).also{
-                startActivity(it)
-            }
+            val action = HomeFragmentDirections.actionNavigationHomeToTodayFragment()
+            findNavController().navigate(action)
         }
 
         val thisWeekButton = binding.btnThisWeek
