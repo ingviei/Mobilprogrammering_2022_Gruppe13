@@ -5,90 +5,52 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
-    <fragment
+   <fragment
         android:id="@+id/navigation_home"
         android:name="no.gruppe13.hiof.taskmanager.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_category_update"
-            app:destination="@id/navigation_category_update"
-            app:enterAnim="@anim/nav_default_enter_anim" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_tasks"
-            app:destination="@id/navigation_tasks" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_calendar"
-            app:destination="@id/navigation_calendar" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_category_create"
-            app:destination="@id/navigation_category_create" />
-    </fragment>
+      <action
+          android:id="@+id/action_navigation_home_to_categoryFragment"
+          app:destination="@id/categoryFragment" />
+      <action
+          android:id="@+id/action_navigation_home_to_thisWeekFragment"
+          app:destination="@id/thisWeekFragment" />
+      <action
+          android:id="@+id/action_navigation_home_to_todayFragment"
+          app:destination="@id/todayFragment" />
+   </fragment>
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="no.gruppe13.hiof.taskmanager.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
+   <fragment
         android:id="@+id/navigation_calendar"
         android:name="no.gruppe13.hiof.taskmanager.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
-
-    <fragment
-        android:id="@+id/navigation_tasks"
-        android:name="no.gruppe13.hiof.taskmanager.TaskFragment"
-        android:label="@string/title_tasks"
-        tools:layout="@layout/fragment_task" >
-        <action
-            android:id="@+id/action_navigation_tasks_to_navigation_create_task"
-            app:destination="@id/navigation_create_task" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_category_create"
-        android:name="no.gruppe13.hiof.taskmanager.CreateCategoryFragment"
-        android:label="@string/destination_create_category"
-        tools:layout="@layout/fragment_create_category" >
-        <action
-            android:id="@+id/action_navigation_category_create_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_category_update"
-        android:name="no.gruppe13.hiof.taskmanager.UpdateCategoryFragment"
-        android:label="@string/destination_update_category"
-        tools:layout="@layout/fragment_update_category" >
-        <argument
-            android:name="categoryId"
-            app:argType="integer" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_create_task"
-        android:name="no.gruppe13.hiof.taskmanager.CreateTaskFragment"
-        android:label="@string/new_task"
-        tools:layout="@layout/fragment_create_task" >
-        <action
-            android:id="@+id/action_navigation_create_task_to_navigation_date_picker"
-            app:destination="@id/navigation_date_picker" />
-        <action
-            android:id="@+id/action_navigation_create_task_to_navigation_time_picker"
-            app:destination="@id/navigation_time_picker" />
-    </fragment>
-
-    <dialog
-        android:id="@+id/navigation_date_picker"
-        android:name="no.gruppe13.hiof.taskmanager.DatePickerFragment"
-        android:label="@string/date_picker"
-        tools:layout="@layout/fragment_date_picker" />
-
-    <dialog
-        android:id="@+id/navigation_time_picker"
-        android:name="no.gruppe13.hiof.taskmanager.TimePickerFragment"
-        android:label="@string/time_picker"
-        tools:layout="@layout/fragment_time_picker" />
+   <fragment
+       android:id="@+id/categoryFragment"
+       android:name="no.gruppe13.hiof.taskmanager.CategoryFragment"
+       android:label="fragment_category"
+       tools:layout="@layout/fragment_category" >
+      <action
+          android:id="@+id/action_categoryFragment_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
+   <fragment
+       android:id="@+id/thisWeekFragment"
+       android:name="no.gruppe13.hiof.taskmanager.ThisWeekFragment"
+       android:label="fragment_this_week"
+       tools:layout="@layout/fragment_this_week" >
+      <action
+          android:id="@+id/action_thisWeekFragment_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
+   <fragment
+       android:id="@+id/todayFragment"
+       android:name="no.gruppe13.hiof.taskmanager.TodayFragment"
+       android:label="fragment_today"
+       tools:layout="@layout/fragment_today" >
+      <action
+          android:id="@+id/action_todayFragment_to_navigation_home"
+          app:destination="@id/navigation_home" />
+   </fragment>
 </navigation>
