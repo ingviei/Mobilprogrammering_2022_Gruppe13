@@ -24,7 +24,7 @@ class TodayFragment : Fragment() {
 
         addTaskButton.setOnClickListener{
             val navController = it.findNavController()
-            navController.navigate(R.id.action_todayFragment_to_createTaskFragment)
+            navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
         }
 
     }
