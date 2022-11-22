@@ -16,15 +16,13 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".CreateCategoryActivity"
-            android:label="Lag ny kategori"
+            android:name=".TodoItems"
+            android:label="Dagens gjøremål"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="adjustResize">
-        <!--        Code for line above from source:  https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility-->
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
         </activity>
 
         <activity
@@ -32,23 +30,11 @@
             android:label="Opprett nytt gjøremål"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".TodayFragment">
-<!--            Funker ikke å redirigere til Fragment, må endes -->
+            android:parentActivityName=".TodoItems">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="no.gruppe13.hiof.taskmanager.TodayFragment" />
+            android:value="no.gruppe13.hiof.taskmanager.TodoItems" />
         </activity>
-
-        <!--        TodoItems skal slettes: pga gjort om til TodayFragment-->
-        <!-- <activity
-             android:name=".TodoItems"
-             android:label="Dagens gjøremål"
-             android:exported="false"
-             android:parentActivityName=".MainActivity">
-             <meta-data
-                 android:name="android.support.PARENT_ACTIVITY"
-                 android:value="no.gruppe13.hiof.taskmanager.MainActivity" />
-         </activity>-->
 
         <activity
             android:name=".MainActivity"

@@ -3,12 +3,20 @@ package no.gruppe13.hiof.taskmanager
 import android.R
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.lifecycle.coroutineScope
-import androidx.lifecycle.lifecycleScope
+import androidx.annotation.IdRes
+import androidx.core.text.set
+import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.*
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -16,8 +24,11 @@ import no.gruppe13.hiof.taskmanager.adapter.CreateTaskCategorySpinnerAdapter
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
+import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,22 +84,28 @@ class CreateTaskFragment : Fragment() {
             }
         }
 
-        /*supportFragmentManager
+        requireActivity().supportFragmentManager
             .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(DatePickerFragment.FORMATTED_DATE_KEY)
                 binding.dateInput.setText(result)
             }
 
-        supportFragmentManager
+        requireActivity().supportFragmentManager
             .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
                 binding.timeInput.setText(result)
-            }*/
+            }
+
+        val navController = findNavController();
+        // Lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog
+        /*navController.currentBackStackEntry?.savedStateHandle?.getLiveData("key")?.observe(
+            viewLifecycleOwner) { result: Date ->
+            // Do something with the result.
+        }*/
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
-            val intent = Intent(context, TodayFragment::class.java)
-            //TODO: Fix the intent so that intent toward TodayFragment works as for TodoItems
+            val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
 
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
@@ -111,18 +128,68 @@ class CreateTaskFragment : Fragment() {
             toast.show()
         }
 
+        binding.pickDateCreateTaskBtn.setOnClickListener() {
+            showDatePicker(it)
+        }
+
+        binding.pickTimeCreateTaskBtn.setOnClickListener() {
+            showTimePicker(it)
+        }
+
         return view
     }
 
-    /*fun showDatePickerDialog(v: View) {
-        val newFragment = DatePickerFragment()
-        newFragment.show(supportFragmentManager, "datePicker")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        getNavigationResult<String>(
+            Navigation.findNavController(this.requireView()).currentDestination!!.id,
+            "picked_date") { setDateText(it) }
+
+        getNavigationResult<String>(
+            Navigation.findNavController(this.requireView()).currentDestination!!.id,
+            "picked_time") { setTimeText(it) }
     }
 
-    fun showTimePickerDialog(v: View) {
-        val newFragment = TimePickerFragment()
-        newFragment.show(supportFragmentManager, "timePicker")
-    }*/
+    fun showDatePicker(v: View) {
+        val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationDatePicker()
+        findNavController().navigate(action)
+    }
+
+    fun showTimePicker(v: View) {
+        val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationTimePicker()
+        findNavController().navigate(action)
+    }
+
+    fun setDateText(dateString: String) {
+        binding.dateInput.setText(dateString)
+    }
+
+    fun setTimeText(timeString: String) {
+        binding.timeInput.setText(timeString)
+    }
+
+    // Extension function lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog
+    fun <T>Fragment.getNavigationResult(@IdRes id: Int, key: String, onResult: (result: T) -> Unit) {
+        val navBackStackEntry = findNavController().getBackStackEntry(id)
+
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME
+                && navBackStackEntry.savedStateHandle.contains(key)
+            ) {
+                val result = navBackStackEntry.savedStateHandle.get<T>(key)
+                result?.let(onResult)
+                navBackStackEntry.savedStateHandle.remove<T>(key)
+            }
+        }
+        navBackStackEntry.lifecycle.addObserver(observer)
+
+        viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_DESTROY) {
+                navBackStackEntry.lifecycle.removeObserver(observer)
+            }
+        })
+    }
 
     companion object {
         /**

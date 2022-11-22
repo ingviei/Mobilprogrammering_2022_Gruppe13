@@ -1,6 +1,5 @@
 package no.gruppe13.hiof.taskmanager
 
-
 import android.R
 import android.content.Intent
 import android.os.Bundle
@@ -49,7 +48,7 @@ class CreateTaskActivity : AppCompatActivity() {
                 }
             }
         }
-
+/*
         supportFragmentManager
             .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(DatePickerFragment.FORMATTED_DATE_KEY)
@@ -60,13 +59,11 @@ class CreateTaskActivity : AppCompatActivity() {
             .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
                 binding.timeInput.setText(result)
-            }
+            }*/
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
-            val intent = Intent(context, TodayFragment::class.java)
-            //TODO: intent i linjen over: Byttet ut TodoItems klassen med TodayFragment, siden TodoItems ikke finnes lenger.Må endres så intentet sendes til fragmentet istedet
-
+            val intent = Intent(context, TodoItems::class.java)
             context.startActivity(intent)
 
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
@@ -89,7 +86,7 @@ class CreateTaskActivity : AppCompatActivity() {
             toast.show()
         }
     }
-
+/*
     fun showDatePickerDialog(v: View) {
         val newFragment = DatePickerFragment()
         newFragment.show(supportFragmentManager, "datePicker")
@@ -98,6 +95,5 @@ class CreateTaskActivity : AppCompatActivity() {
     fun showTimePickerDialog(v: View) {
         val newFragment = TimePickerFragment()
         newFragment.show(supportFragmentManager, "timePicker")
-    }
-    }
-
+    }*/
+}
