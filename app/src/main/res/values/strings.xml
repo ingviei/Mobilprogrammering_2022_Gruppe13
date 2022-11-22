@@ -24,6 +24,7 @@
     <string name="legg_til_klokkeslett">Legg til klokkeslett</string>
     <string name="klokkeslett">Klokkeslett</string>
     <string name="category">Kategori</string>
+
     <string name="name_of_category">Navn på kategori</string>
     <string name="create_category">Opprett kategori</string>
     <string name="legg_til_oppgave">Legg til oppgave</string>

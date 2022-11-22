@@ -14,7 +14,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.CategoryAdapter
 import no.gruppe13.hiof.taskmanager.data.category.Category
-import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCategoryBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory

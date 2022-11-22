@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCreateCategoryBinding
-import no.gruppe13.hiof.taskmanager.ui.home.HomeFragmentDirections
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
