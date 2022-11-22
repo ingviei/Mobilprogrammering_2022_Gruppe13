@@ -16,7 +16,6 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import no.gruppe13.hiof.taskmanager.CreateCategoryActivity
 import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.TodoItems
 import no.gruppe13.hiof.taskmanager.databinding.FragmentHomeBinding
@@ -41,9 +40,8 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         binding.floatingActionButtonAddCategoryButton.setOnClickListener {
-            val context = binding.floatingActionButtonAddCategoryButton.context
-            val intent = Intent(context, CreateCategoryActivity::class.java)
-            context.startActivity(intent)
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationCategoryCreate()
+            findNavController().navigate(action)
         }
 
         val navView: BottomNavigationView = binding.navView

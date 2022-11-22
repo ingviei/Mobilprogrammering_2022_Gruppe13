@@ -39,5 +39,6 @@
     <string name="new_task">Ny oppgave</string>
     <string name="date_picker">Velg dato</string>
     <string name="time_picker">Velg tid</string>
+    <string name="destination_create_category">Opprett kategori</string>
 
 </resources>

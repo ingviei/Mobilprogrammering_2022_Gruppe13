@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_calendar"
             app:destination="@id/navigation_calendar" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_category_create"
+            app:destination="@id/navigation_category_create" />
     </fragment>
 
     <fragment
@@ -42,6 +45,16 @@
         <action
             android:id="@+id/action_navigation_tasks_to_navigation_create_task"
             app:destination="@id/navigation_create_task" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_category_create"
+        android:name="no.gruppe13.hiof.taskmanager.CreateCategoryFragment"
+        android:label="@string/destination_create_category"
+        tools:layout="@layout/fragment_create_category" >
+        <action
+            android:id="@+id/action_navigation_category_create_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
