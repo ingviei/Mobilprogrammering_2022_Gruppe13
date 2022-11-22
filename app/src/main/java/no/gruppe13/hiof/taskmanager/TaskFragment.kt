@@ -1,11 +1,14 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import no.gruppe13.hiof.taskmanager.databinding.FragmentTaskBinding
 import no.gruppe13.hiof.taskmanager.ui.home.HomeFragmentDirections
 
@@ -40,6 +43,36 @@ class TaskFragment : Fragment() {
         addTaskBtn.setOnClickListener{
             val action = TaskFragmentDirections.actionNavigationTasksToNavigationCreateTask()
             findNavController().navigate(action)
+        }
+
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController()
+
+        navView.setupWithNavController(navController)
+
+        // ToDo: I dette fragmentet burde begge menyvalgene
+        //  se ut som om man kan velge dem
+        /*
+        navView.menu.findItem(R.id.nav_home).isEnabled = true
+        navView.menu.findItem(R.id.nav_calendar).isEnabled = true
+        navView.menu.findItem(R.id.nav_home).isCheckable = true
+        navView.menu.findItem(R.id.nav_calendar).isCheckable = true
+        navView.selectedItemId = R.id.nav_calendar
+         */
+
+        navView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    findNavController().navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    findNavController().navigate(R.id.navigation_calendar)
+                    true
+                }
+                else -> false
+            }
         }
 
         return view

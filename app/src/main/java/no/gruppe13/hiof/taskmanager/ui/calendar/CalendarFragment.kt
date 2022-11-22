@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCalendarBinding
+import no.gruppe13.hiof.taskmanager.databinding.FragmentTaskBinding
 
 class CalendarFragment : Fragment() {
 
-    private var _binding: FragmentCalendarBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCalendarBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,18 +26,35 @@ class CalendarFragment : Fragment() {
         val calendarViewModel =
             ViewModelProvider(this).get(CalendarViewModel::class.java)
 
-        _binding = FragmentCalendarBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentCalendarBinding.inflate(inflater, container, false)
+        val view: View = binding.root
 
         val textView: TextView = binding.textNotifications
         calendarViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        return root
+
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController()
+
+        navView.setupWithNavController(navController)
+
+        navView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    findNavController().navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    findNavController().navigate(R.id.navigation_calendar)
+                    true
+                }
+                else -> false
+            }
+        }
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

@@ -49,6 +49,19 @@ class HomeFragment : Fragment() {
 
         navView.setupWithNavController(navController)
 
+        navView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    findNavController().navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    findNavController().navigate(R.id.navigation_calendar)
+                    true
+                }
+                else -> false
+            }
+        }
 
         val todayButton = binding.btnToday //findViewById<Button>(R.id.btnToday)
         todayButton.setOnClickListener{

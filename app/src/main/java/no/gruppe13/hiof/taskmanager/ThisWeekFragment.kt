@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import no.gruppe13.hiof.taskmanager.databinding.FragmentTaskBinding
+import no.gruppe13.hiof.taskmanager.databinding.FragmentThisWeekBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +25,7 @@ class ThisWeekFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentThisWeekBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +40,30 @@ class ThisWeekFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_this_week, container, false)
+        binding = FragmentThisWeekBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController()
+
+        navView.setupWithNavController(navController)
+
+        navView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    findNavController().navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    findNavController().navigate(R.id.navigation_calendar)
+                    true
+                }
+                else -> false
+            }
+        }
+
+        return view
     }
 
     companion object {
