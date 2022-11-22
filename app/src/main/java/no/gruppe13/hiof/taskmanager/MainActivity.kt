@@ -28,11 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.floatingActionButtonAddCategoryButton.setOnClickListener {
+       /* binding.floatingActionButtonAddCategoryButton.setOnClickListener {
             val context = binding.floatingActionButtonAddCategoryButton.context
             val intent = Intent(context, CreateCategoryActivity::class.java)
             context.startActivity(intent)
-        }
+        }*/
 
        val navController = findNavController(R.id.nav_host_fragment_activity_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)

@@ -3,10 +3,8 @@ package no.gruppe13.hiof.taskmanager
 import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.lifecycle.coroutineScope
@@ -18,7 +16,6 @@ import no.gruppe13.hiof.taskmanager.adapter.CreateTaskCategorySpinnerAdapter
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
-import no.gruppe13.hiof.taskmanager.databinding.ActivityCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 

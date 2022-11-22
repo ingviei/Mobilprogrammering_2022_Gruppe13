@@ -33,6 +33,12 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        binding.floatingActionButtonAddCategoryButton.setOnClickListener {
+            val context = binding.floatingActionButtonAddCategoryButton.context
+            val intent = Intent(context, CreateCategoryActivity::class.java)
+            context.startActivity(intent)
+        }
+
        /* val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
