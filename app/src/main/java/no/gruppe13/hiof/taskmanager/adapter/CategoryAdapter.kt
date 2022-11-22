@@ -102,7 +102,7 @@ class CategoryAdapter(private val clickListener: View.OnClickListener) :
         override fun onMenuItemClick(item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.edit_category -> {
-                    val action = HomeFragmentDirections.actionNavigationHomeToNavigationCategoryUpdate(categoryId)
+                    val action = HomeFragmentDirections.actionNavigationHomeToUpdateCategoryFragment() // categoryId slettet
 
                     view.findNavController().navigate(action)
                     return true

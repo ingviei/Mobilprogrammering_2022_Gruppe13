@@ -19,6 +19,9 @@
       <action
           android:id="@+id/action_navigation_home_to_todayFragment"
           app:destination="@id/todayFragment" />
+      <action
+          android:id="@+id/action_navigation_home_to_updateCategoryFragment"
+          app:destination="@id/updateCategoryFragment" />
    </fragment>
 
    <fragment
@@ -81,4 +84,10 @@
        android:name="no.gruppe13.hiof.taskmanager.TimePickerFragment"
        android:label="fragment_time_picker"
        tools:layout="@layout/fragment_time_picker" />
+
+   <fragment
+       android:id="@+id/updateCategoryFragment"
+       android:name="no.gruppe13.hiof.taskmanager.UpdateCategoryFragment"
+       android:label="fragment_update_category"
+       tools:layout="@layout/fragment_update_category" />
 </navigation>
