@@ -10,7 +10,7 @@ import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 
-class TaskAdapter(private val taskItems: MutableList<Task>) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
+class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
 
     class TaskViewHolder(private var binding: TaskListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {
@@ -29,7 +29,6 @@ class TaskAdapter(private val taskItems: MutableList<Task>) : ListAdapter<Task, 
             )
         )
         return viewHolder
-
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
@@ -38,8 +37,8 @@ class TaskAdapter(private val taskItems: MutableList<Task>) : ListAdapter<Task, 
         holder.bind(item)
     }
 
-    override fun getItemCount(): Int {
-    return taskItems.size    }
+ /*   override fun getItemCount(): Int {
+    return taskItems.size    }*/
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Task>() {
