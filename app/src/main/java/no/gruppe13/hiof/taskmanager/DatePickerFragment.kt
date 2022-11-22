@@ -33,7 +33,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        val dateString: String = String.format("%04d-%02d-%02d", year, month, day);
+        val dateString: String = String.format("%04d-%02d-%02d", year, month + 1, day);
 
         setNavigationResult("picked_date", dateString)
     }
