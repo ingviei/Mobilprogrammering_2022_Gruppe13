@@ -41,9 +41,6 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
     }
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
-        c.set(Calendar.HOUR_OF_DAY, hourOfDay)
-        c.set(Calendar.MINUTE, minute)
-
         val formattedTime = String.format("%02d:%02d", hourOfDay, minute)
 
         setFragmentResult(TimePickerFragment.REQUEST_KEY, bundleOf(TimePickerFragment.FORMATTED_TIME_KEY to formattedTime))

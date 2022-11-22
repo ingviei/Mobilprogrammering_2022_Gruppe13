@@ -9,6 +9,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import java.text.DateFormat
 import java.util.*
 
@@ -30,15 +33,23 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        c.set(year, month, day)
-        val df: DateFormat = DateFormat.getDateInstance(DateFormat.DATE_FIELD, Locale.getDefault())
-        val formattedDate: String = df.format(c.time)
-        setFragmentResult(REQUEST_KEY, bundleOf(FORMATTED_DATE_KEY to formattedDate))
+        val dateString: String = String.format("%04d-%02d-%02d", year, month, day);
+
+        setNavigationResult("picked_date", dateString)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
+
+    // Extension function lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog
+    fun <T>Fragment.setNavigationResult(key: String, value: T) {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(
+            key,
+            value
+        )
+    }
+
 
     companion object {
         const val REQUEST_KEY = "task-datepicker-request"

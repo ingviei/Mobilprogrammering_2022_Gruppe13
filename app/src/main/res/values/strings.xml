@@ -37,5 +37,6 @@
     <string name="title_tasks">Oppgaver</string>
     <string name="add_task">Legg til oppgave</string>
     <string name="new_task">Ny oppgave</string>
+    <string name="date_picker">Velg dato</string>
 
 </resources>

@@ -48,7 +48,7 @@ class CreateTaskActivity : AppCompatActivity() {
                 }
             }
         }
-
+/*
         supportFragmentManager
             .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(DatePickerFragment.FORMATTED_DATE_KEY)
@@ -59,7 +59,7 @@ class CreateTaskActivity : AppCompatActivity() {
             .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
                 val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
                 binding.timeInput.setText(result)
-            }
+            }*/
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context
@@ -86,7 +86,7 @@ class CreateTaskActivity : AppCompatActivity() {
             toast.show()
         }
     }
-
+/*
     fun showDatePickerDialog(v: View) {
         val newFragment = DatePickerFragment()
         newFragment.show(supportFragmentManager, "datePicker")
@@ -95,5 +95,5 @@ class CreateTaskActivity : AppCompatActivity() {
     fun showTimePickerDialog(v: View) {
         val newFragment = TimePickerFragment()
         newFragment.show(supportFragmentManager, "timePicker")
-    }
+    }*/
 }
