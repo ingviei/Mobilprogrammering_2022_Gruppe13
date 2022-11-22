@@ -10,7 +10,7 @@ import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 
-class TaskAdapter (private val taskItems: MutableList<Task>) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
+class TaskAdapter(private val taskItems: MutableList<Task>) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
 
     class TaskViewHolder(private var binding: TaskListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {
@@ -29,15 +29,13 @@ class TaskAdapter (private val taskItems: MutableList<Task>) : ListAdapter<Task,
             )
         )
         return viewHolder
-        //viewHolder.itemView.
 
-        //viewHolder.itemView.t
     }
+
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
 
-        val currentTask = taskItems[position]
-        holder.bind(currentTask)
-
+        val item = getItem(position)
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
