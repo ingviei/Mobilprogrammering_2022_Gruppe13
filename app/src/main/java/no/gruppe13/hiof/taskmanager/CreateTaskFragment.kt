@@ -145,22 +145,28 @@ class CreateTaskFragment : Fragment() {
         getNavigationResult<String>(
             Navigation.findNavController(this.requireView()).currentDestination!!.id,
             "picked_date") { setDateText(it) }
+
+        getNavigationResult<String>(
+            Navigation.findNavController(this.requireView()).currentDestination!!.id,
+            "picked_time") { setTimeText(it) }
     }
 
     fun showDatePicker(v: View) {
-        /*val newFragment = DatePickerFragment()
-        newFragment.show(requireActivity().supportFragmentManager, "datePicker")*/
         val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationDatePicker()
         findNavController().navigate(action)
     }
 
     fun showTimePicker(v: View) {
-        val newFragment = TimePickerFragment()
-        newFragment.show(requireActivity().supportFragmentManager, "timePicker")
+        val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationTimePicker()
+        findNavController().navigate(action)
     }
 
     fun setDateText(dateString: String) {
         binding.dateInput.setText(dateString)
+    }
+
+    fun setTimeText(timeString: String) {
+        binding.timeInput.setText(timeString)
     }
 
     // Extension function lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog

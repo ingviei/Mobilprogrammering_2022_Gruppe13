@@ -13,6 +13,7 @@ import android.widget.TimePicker
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.timepicker.TimeFormat
 import no.gruppe13.hiof.taskmanager.DatePickerFragment.Companion.FORMATTED_DATE_KEY
 import no.gruppe13.hiof.taskmanager.DatePickerFragment.Companion.REQUEST_KEY
@@ -43,7 +44,15 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         val formattedTime = String.format("%02d:%02d", hourOfDay, minute)
 
-        setFragmentResult(TimePickerFragment.REQUEST_KEY, bundleOf(TimePickerFragment.FORMATTED_TIME_KEY to formattedTime))
+        setNavigationResult("picked_time", formattedTime)
+    }
+
+    // Extension function lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog
+    fun <T>Fragment.setNavigationResult(key: String, value: T) {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(
+            key,
+            value
+        )
     }
 
     companion object {
