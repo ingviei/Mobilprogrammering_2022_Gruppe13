@@ -24,6 +24,12 @@ class TodayFragment : Fragment() {
         val view = binding.root
         val navView: BottomNavigationView = binding.navView
 
+        val addTaskBtn = binding.floatingActionButtonAddTaskButton
+        addTaskBtn.setOnClickListener{
+            val action = TodayFragmentDirections.actionTodayFragmentToNavigationCreateTask()
+            findNavController().navigate(action)
+        }
+
         val navController = findNavController()
 
         navView.setupWithNavController(navController)
@@ -48,7 +54,7 @@ class TodayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val addTaskButton = view.findViewById<Button>(R.id.btn_add_task)
+        //val addTaskButton = view.findViewById<Button>(R.id.btn_add_task)
 
         /*addTaskButton.setOnClickListener{
             val navController = it.findNavController()

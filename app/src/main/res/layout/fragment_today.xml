@@ -37,13 +37,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_add_task"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_today" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_today" /> -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_add_task_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:contentDescription="@string/add_task"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"

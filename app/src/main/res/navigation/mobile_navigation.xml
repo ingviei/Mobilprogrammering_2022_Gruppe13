@@ -56,6 +56,9 @@
       <action
           android:id="@+id/action_thisWeekFragment_to_navigation_home"
           app:destination="@id/navigation_home" />
+       <action
+           android:id="@+id/action_thisWeekFragment_to_navigation_create_task"
+           app:destination="@id/navigation_create_task" />
    </fragment>
    <fragment
        android:id="@+id/todayFragment"
@@ -65,6 +68,9 @@
       <action
           android:id="@+id/action_todayFragment_to_navigation_home"
           app:destination="@id/navigation_home" />
+       <action
+           android:id="@+id/action_todayFragment_to_navigation_create_task"
+           app:destination="@id/navigation_create_task" />
    </fragment>
 
     <fragment

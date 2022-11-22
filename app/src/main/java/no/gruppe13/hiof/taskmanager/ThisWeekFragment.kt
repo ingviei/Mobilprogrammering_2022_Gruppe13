@@ -45,6 +45,12 @@ class ThisWeekFragment : Fragment() {
 
         val navView: BottomNavigationView = binding.navView
 
+        val addTaskBtn = binding.floatingActionButtonAddTaskButton
+        addTaskBtn.setOnClickListener{
+            val action = ThisWeekFragmentDirections.actionThisWeekFragmentToNavigationCreateTask()
+            findNavController().navigate(action)
+        }
+
         val navController = findNavController()
 
         navView.setupWithNavController(navController)
