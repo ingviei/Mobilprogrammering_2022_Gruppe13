@@ -22,10 +22,10 @@ class TodayFragment : Fragment() {
 
         val addTaskButton = view.findViewById<Button>(R.id.btn_add_task)
 
-        /*addTaskButton.setOnClickListener{
+        addTaskButton.setOnClickListener{
             val navController = it.findNavController()
-            navController.navigate(R.id.createTaskActivity)
-        }*/
+            navController.navigate(R.id.action_todayFragment_to_createTaskFragment)
+        }
 
     }
 
