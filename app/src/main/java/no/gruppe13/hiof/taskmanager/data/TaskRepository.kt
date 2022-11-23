@@ -2,8 +2,6 @@ package no.gruppe13.hiof.taskmanager.data
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
-import no.gruppe13.hiof.taskmanager.data.task.Task
-import no.gruppe13.hiof.taskmanager.data.task.TaskDao
 
 class TaskRepository(private val taskDao: TaskDao) {
     val allTasks: Flow<List<Task>> = taskDao.getAllTasks()

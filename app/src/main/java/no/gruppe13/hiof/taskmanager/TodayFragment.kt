@@ -37,8 +37,6 @@ class TodayFragment : Fragment() {
         )
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,8 +52,6 @@ class TodayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.todayRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        //val taskrec = view.findViewById<RecyclerView>(R.id.todayRecyclerView)
 
         val taskAdapter = TaskAdapter()
         recyclerView.adapter = taskAdapter

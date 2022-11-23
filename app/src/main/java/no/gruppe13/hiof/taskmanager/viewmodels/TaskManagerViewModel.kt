@@ -3,9 +3,9 @@ package no.gruppe13.hiof.taskmanager.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.Flow
-import no.gruppe13.hiof.taskmanager.data.task.Task
+import no.gruppe13.hiof.taskmanager.data.Task
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
-import no.gruppe13.hiof.taskmanager.data.task.TaskDao
+import no.gruppe13.hiof.taskmanager.data.TaskDao
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import java.util.*
 
