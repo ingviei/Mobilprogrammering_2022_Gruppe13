@@ -16,8 +16,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.data.Task
+import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 
 class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
@@ -56,6 +60,9 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         val title: TextView = holder.itemView.findViewById(R.id.taskTitle)
         val checked: CheckBox = holder.itemView.findViewById(R.id.checkBoxItem)
 
+        val db = TaskDatabase.getDatabase(holder.itemView.context)
+
+
         title.text = item.title
         checked.isChecked = item.completed
 
@@ -63,6 +70,7 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         checked.setOnCheckedChangeListener { _, _ ->
             toggleStrikeThrough(title, checked.isChecked)
             item.completed = !item.completed
+            CoroutineScope(Dispatchers.IO).launch { db.taskDao().updateTask(item) }
         }
     }
 

@@ -2,6 +2,7 @@ package no.gruppe13.hiof.taskmanager.adapter
 
 // The code for managing database and files that tie it together are greatly inspired by Android's tutorial:
 // https://developer.android.com/courses/pathways/android-basics-kotlin-unit-5-pathway-1#codelab-https://developer.android.com/codelabs/basic-android-kotlin-training-intro-room-flow
+
 import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.view.*
 import android.widget.Toast

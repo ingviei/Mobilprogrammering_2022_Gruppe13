@@ -1,5 +1,6 @@
 package no.gruppe13.hiof.taskmanager
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,12 +42,9 @@ class TodayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.fragment_today, container, false)
-
-    _binding = FragmentTodayBinding.inflate(inflater, container, false)
-    val view = binding.root
-    return view
-}
+        _binding = FragmentTodayBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,9 +62,7 @@ class TodayFragment : Fragment() {
             }
         }
 
-        val addTaskButton = view.findViewById<Button>(R.id.btn_add_task)
-
-        addTaskButton.setOnClickListener{
+        binding.btnAddTask.setOnClickListener {
             val navController = it.findNavController()
             navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
         }
@@ -87,11 +83,9 @@ class TodayFragment : Fragment() {
         fun newInstance() =
             TodayFragment().apply {
                 arguments = Bundle().apply {
-
                 }
             }
     }
-
 
 }
 

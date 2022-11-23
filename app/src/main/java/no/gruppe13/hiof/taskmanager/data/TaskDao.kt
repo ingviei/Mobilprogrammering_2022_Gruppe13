@@ -17,11 +17,12 @@ interface TaskDao {
     // Legge på vararg?
 
     //Bruke update og delete på denne måten? se annen delete metode lenger ned
-    /*@Update
+
+    @Update
     suspend fun updateTask(task: Task)
 
-    @Delete
-    suspend fun deleteTask(task: Task)*/
+   /* @Delete
+    suspend fun deleteTask(task: Task) */
 
     @Query("SELECT * FROM task")
     fun getAllTasks(): Flow<List<Task>>

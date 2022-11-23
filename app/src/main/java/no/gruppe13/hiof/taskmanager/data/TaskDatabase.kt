@@ -1,5 +1,10 @@
 package no.gruppe13.hiof.taskmanager.data
 
+/*The code for implementing the database and the belonging classes is influenced by this codelab:
+https://developer.android.com/codelabs/android-room-with-a-view-kotlin#0
+
+... and also code from the lectures in this subject 'Mobilprogrammering' at Høgskolen in Østfold*/
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
