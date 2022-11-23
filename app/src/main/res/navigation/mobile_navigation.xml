@@ -41,7 +41,12 @@
         tools:layout="@layout/fragment_calendar">
         <action
             android:id="@+id/action_calendarFragment_to_navigation_date_picker"
-            app:destination="@id/navigation_date_picker" />
+            app:destination="@id/navigation_date_picker"
+            >
+            <argument
+                android:name="return_key"
+                android:defaultValue='"dummy"' />
+        </action>
 
    </fragment>
 
