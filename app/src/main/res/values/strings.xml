@@ -39,5 +39,7 @@
     <string name="date_picker">Velg dato</string>
     <string name="time_picker">Velg tid</string>
     <string name="destination_create_category">Opprett kategori</string>
+    <string name="from_date">Fra:</string>
+    <string name="to_date">Til:</string>
 
 </resources>

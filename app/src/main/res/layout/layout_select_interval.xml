@@ -71,21 +71,66 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fixed_layout">
 
-                <NumberPicker
-                    android:id="@+id/interval_layout_year_picker"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/pick_from_interval"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/from_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/pick_from_interval_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:text="@string/velg"
+                    app:layout_constraintStart_toEndOf="@id/pick_from_interval_input"
+                    app:layout_constraintBottom_toBottomOf="@id/pick_from_interval_input"
                     app:layout_constraintRight_toLeftOf="@id/interval_guideline"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/pick_from_interval_input" />
+
+                <EditText
+                    android:id="@+id/pick_from_interval_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:hint="Åå / mm / dd"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pick_from_interval" />
+
+                <TextView
+                    android:id="@+id/pick_to_interval"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/to_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/pick_to_interval_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:text="@string/velg"
+                    app:layout_constraintStart_toEndOf="@id/pick_to_interval_input"
+                    app:layout_constraintBottom_toBottomOf="@id/pick_to_interval_input"
+                    app:layout_constraintLeft_toRightOf="@id/interval_guideline"
                     />
 
-                <NumberPicker
-                    android:id="@+id/interval_layout_month_picker"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/pick_to_interval_input"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/interval_guideline"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    android:minHeight="48dp"
+                    android:hint="Åå / mm / dd"
+                    app:layout_constraintTop_toBottomOf="@id/pick_to_interval"
+                    app:layout_constraintLeft_toLeftOf="@id/interval_guideline"/>
+
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/interval_guideline"
