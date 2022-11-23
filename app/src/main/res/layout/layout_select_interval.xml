@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Kode tatt fra https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/ -->
+<!-- Kode lånt fra https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/ -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -39,12 +39,12 @@
                 app:layout_constraintVertical_bias="0.0" >
 
                 <TextView
-                    android:id="@+id/week_heading"
+                    android:id="@+id/interval_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:textSize="16sp"
-                    android:text="VELG UKE"
+                    android:text="VELG INTERVALL"
                     app:layout_constraintStart_toStartOf="@id/fixed_layout"
                     app:layout_constraintTop_toTopOf="@id/arrow_button"
                     app:layout_constraintBottom_toBottomOf="@id/arrow_button"
@@ -72,34 +72,27 @@
                 app:layout_constraintTop_toBottomOf="@id/fixed_layout">
 
                 <NumberPicker
-                    android:id="@+id/week_layout_year_picker"
+                    android:id="@+id/interval_layout_year_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintRight_toLeftOf="@id/week_guideline"
+                    app:layout_constraintRight_toLeftOf="@id/interval_guideline"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
 
                 <NumberPicker
-                    android:id="@+id/week_layout_week_picker"
+                    android:id="@+id/interval_layout_month_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/week_guideline"
+                    app:layout_constraintLeft_toRightOf="@id/interval_guideline"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
 
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/week_guideline"
+                    android:id="@+id/interval_guideline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.5"/>
-
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Velg uke:"
-                    app:layout_constraintStart_toStartOf="@id/week_layout_week_picker"
-                    app:layout_constraintBottom_toTopOf="@id/week_layout_week_picker" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
