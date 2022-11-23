@@ -69,28 +69,6 @@ class TodayFragment : Fragment() {
             }
         }
 
-
-
-
-        // For å streke gjennom item
-       /* private fun toggleStrikeThrough(tvTaskTitle: TextView, completed: Boolean) {
-            if (completed) {
-                tvTaskTitle.paintFlags or STRIKE_THRU_TEXT_FLAG
-            } else {
-                tvTaskTitle.paintFlags = tvTaskTitle.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
-            }
-        }*/
-
-        //val checkbox = view.findViewById<CheckBox>(R.id.checkBoxItem)
-
-        //Wrap en funksjon rundt denne
-       /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
-        checkbox.setOnCheckedChangeListener { _, _ ->
-            toggleStrikeThrough(tvTaskTitle, completed)
-            currentTask.completed = !currentTask.completed
-        }*/
-
-
         val addTaskButton = view.findViewById<Button>(R.id.btn_add_task)
 
         addTaskButton.setOnClickListener{

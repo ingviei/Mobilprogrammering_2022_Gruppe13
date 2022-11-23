@@ -1,8 +1,10 @@
 package no.gruppe13.hiof.taskmanager.adapter
 
+import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -31,10 +33,33 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         return viewHolder
     }
 
-    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+    // For å streke gjennom item
+    private fun toggleStrikeThrough(tvTaskTitle: TextView, completed: Boolean) {
+         if (completed) {
+             tvTaskTitle.paintFlags or STRIKE_THRU_TEXT_FLAG
+         } else {
+             tvTaskTitle.paintFlags = tvTaskTitle.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
+         }
+     }
 
+    //val checkbox = view.findViewById<CheckBox>(R.id.checkBoxItem)
+
+    //Wrap en funksjon rundt denne
+    /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
+     checkbox.setOnCheckedChangeListener { _, _ ->
+         toggleStrikeThrough(tvTaskTitle, completed)
+         currentTask.completed = !currentTask.completed
+     }*/
+
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        
+       /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
+        checkbox.setOnCheckedChangeListener { _, _ ->
+            toggleStrikeThrough(tvTaskTitle, completed)
+            currentTask.completed = !currentTask.completed
+        }*/
     }
 
  /*   override fun getItemCount(): Int {
