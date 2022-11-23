@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/calendar_card_view"
+        android:id="@+id/interval_calendar_card_view"
         style="@style/Base.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/calendar_card_view"
+            app:layout_constraintBottom_toBottomOf="@id/interval_calendar_card_view"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.511"
             tools:layout_editor_absoluteX="-55dp" >
@@ -46,12 +46,12 @@
                     android:textSize="16sp"
                     android:text="VELG INTERVALL"
                     app:layout_constraintStart_toStartOf="@id/fixed_layout"
-                    app:layout_constraintTop_toTopOf="@id/arrow_button"
-                    app:layout_constraintBottom_toBottomOf="@id/arrow_button"
+                    app:layout_constraintTop_toTopOf="@id/interval_arrow_button"
+                    app:layout_constraintBottom_toBottomOf="@id/interval_arrow_button"
                     />
 
                 <ImageButton
-                    android:id="@+id/arrow_button"
+                    android:id="@+id/interval_arrow_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_expand_more_24"
@@ -61,11 +61,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/hidden_view"
+                android:id="@+id/interval_hidden_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,17 +80,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/pick_from_interval_btn"
+                <ImageButton
+                    android:id="@+id/calendar_from_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_margin="0dp"
-                    android:padding="0dp"
-                    android:text="@string/velg"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_calendar_today_24"
+                    app:layout_constraintEnd_toEndOf="@id/pick_from_interval"
                     app:layout_constraintStart_toEndOf="@id/pick_from_interval_input"
                     app:layout_constraintBottom_toBottomOf="@id/pick_from_interval_input"
                     app:layout_constraintRight_toLeftOf="@id/interval_guideline"
-                    app:layout_constraintLeft_toRightOf="@id/pick_from_interval_input" />
+                    app:layout_constraintLeft_toRightOf="@id/pick_from_interval_input"/>
 
                 <EditText
                     android:id="@+id/pick_from_interval_input"
@@ -107,12 +106,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/to_date"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/pick_to_interval_input"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/pick_to_interval_btn"
-                    android:layout_width="wrap_content"
+                <!--<Button
+
                     android:layout_height="0dp"
                     android:layout_margin="0dp"
                     android:padding="0dp"
@@ -120,7 +118,17 @@
                     app:layout_constraintStart_toEndOf="@id/pick_to_interval_input"
                     app:layout_constraintBottom_toBottomOf="@id/pick_to_interval_input"
                     app:layout_constraintLeft_toRightOf="@id/interval_guideline"
-                    />
+                    />-->
+
+                <ImageButton
+                    android:id="@+id/calendar_to_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_calendar_today_24"
+                    app:layout_constraintEnd_toEndOf="@id/pick_to_interval"
+                    app:layout_constraintStart_toEndOf="@id/pick_to_interval_input"
+                    app:layout_constraintBottom_toBottomOf="@id/pick_to_interval_input"
+                    app:layout_constraintLeft_toRightOf="@id/interval_guideline" />
 
                 <EditText
                     android:id="@+id/pick_to_interval_input"
