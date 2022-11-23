@@ -26,7 +26,7 @@ import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 class TodayFragment : Fragment() {
 
-    /*private var param1: String? = null
+   /* private var param1: String? = null
     private var param2: String? = null*/
 
     private var _binding: FragmentTodayBinding? = null
@@ -41,6 +41,8 @@ class TodayFragment : Fragment() {
             (activity?.application as TaskManagerApplication).database.categoryDao()
         )
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,16 +81,17 @@ class TodayFragment : Fragment() {
         }
     }
 
-   /* companion object {
-        *//**
+    companion object {
+        /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoryFragment.
-         *//*
+         * @return A new instance of fragment TodayFragment.
+         */
         // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance() =
             TodayFragment().apply {
@@ -96,7 +99,7 @@ class TodayFragment : Fragment() {
 
                 }
             }
-    }*/
+    }
 
 
 }

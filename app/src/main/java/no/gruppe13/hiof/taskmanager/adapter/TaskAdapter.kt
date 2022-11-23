@@ -14,6 +14,8 @@ import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 
 class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
 
+    private var position = 0
+
     class TaskViewHolder(private var binding: TaskListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {
             binding.taskTitle.text = task.title
@@ -55,7 +57,11 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         val item = getItem(position)
         holder.bind(item)
 
-       /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
+
+
+
+/*
+       toggleStrikeThrough(tvTaskTitle, currentTask.completed)
         checkbox.setOnCheckedChangeListener { _, _ ->
             toggleStrikeThrough(tvTaskTitle, completed)
             currentTask.completed = !currentTask.completed
