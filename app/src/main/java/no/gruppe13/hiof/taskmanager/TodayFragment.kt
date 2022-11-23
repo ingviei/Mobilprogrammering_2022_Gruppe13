@@ -26,8 +26,8 @@ import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 class TodayFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    /*private var param1: String? = null
+    private var param2: String? = null*/
 
     private var _binding: FragmentTodayBinding? = null
 
@@ -55,8 +55,10 @@ class TodayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = binding.rvToday
+        recyclerView = binding.todayRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        //val taskrec = view.findViewById<RecyclerView>(R.id.todayRecyclerView)
 
         val taskAdapter = TaskAdapter()
         recyclerView.adapter = taskAdapter
@@ -77,15 +79,15 @@ class TodayFragment : Fragment() {
         }
     }
 
-    companion object {
-        /**
+   /* companion object {
+        *//**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
          * @return A new instance of fragment CategoryFragment.
-         */
+         *//*
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
@@ -94,7 +96,7 @@ class TodayFragment : Fragment() {
 
                 }
             }
-    }
+    }*/
 
 
 }

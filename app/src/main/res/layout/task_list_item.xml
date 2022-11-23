@@ -7,10 +7,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/tv_taskTitle"
+        android:id="@+id/taskTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Gjøremål eksempel"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBoxItem"

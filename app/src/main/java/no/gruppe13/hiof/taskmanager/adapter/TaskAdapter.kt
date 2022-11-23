@@ -16,7 +16,7 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
 
     class TaskViewHolder(private var binding: TaskListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {
-            binding.tvTaskTitle.text = task.title
+            binding.taskTitle.text = task.title
             binding.checkBoxItem.isChecked = task.completed // Sjekk i Task om skal være false default
         }
 
@@ -34,27 +34,27 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
     }
 
     // For å streke gjennom item
-    private fun toggleStrikeThrough(tvTaskTitle: TextView, completed: Boolean) {
+    private fun toggleStrikeThrough(taskTitle: TextView, completed: Boolean) {
          if (completed) {
-             tvTaskTitle.paintFlags or STRIKE_THRU_TEXT_FLAG
+             taskTitle.paintFlags or STRIKE_THRU_TEXT_FLAG
          } else {
-             tvTaskTitle.paintFlags = tvTaskTitle.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
+             taskTitle.paintFlags = taskTitle.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
          }
      }
 
     //val checkbox = view.findViewById<CheckBox>(R.id.checkBoxItem)
 
     //Wrap en funksjon rundt denne
-    /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
+    /* toggleStrikeThrough(taskTitle, currentTask.completed)
      checkbox.setOnCheckedChangeListener { _, _ ->
-         toggleStrikeThrough(tvTaskTitle, completed)
+         toggleStrikeThrough(taskTitle, completed)
          currentTask.completed = !currentTask.completed
      }*/
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-        
+
        /* toggleStrikeThrough(tvTaskTitle, currentTask.completed)
         checkbox.setOnCheckedChangeListener { _, _ ->
             toggleStrikeThrough(tvTaskTitle, completed)
