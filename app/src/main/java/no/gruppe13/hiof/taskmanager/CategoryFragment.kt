@@ -94,7 +94,7 @@ class CategoryFragment : Fragment() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.edit_category -> {
-                findNavController().navigate(R.id.action_navigation_home_to_navigation_category_update)
+                findNavController().navigate(R.id.action_navigation_home_to_categoryFragment)
             }
             R.id.delete_category -> {
                 Toast.makeText(this.context, "delete clicked", Toast.LENGTH_SHORT).show()

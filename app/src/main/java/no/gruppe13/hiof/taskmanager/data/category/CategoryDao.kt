@@ -2,7 +2,6 @@ package no.gruppe13.hiof.taskmanager.data.category
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import no.gruppe13.hiof.taskmanager.data.Task
 
 @Dao
 interface CategoryDao {

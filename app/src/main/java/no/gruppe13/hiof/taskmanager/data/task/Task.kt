@@ -1,4 +1,4 @@
-package no.gruppe13.hiof.taskmanager.data
+package no.gruppe13.hiof.taskmanager.data.task
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -24,6 +24,7 @@ data class Task (
     //var dateTime : Date?,
     var comment : String,
     var completed : Boolean
+    //var completed : Boolean = false
 ) {
 
     @PrimaryKey(autoGenerate = true)
