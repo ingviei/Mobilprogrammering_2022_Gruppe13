@@ -2,19 +2,17 @@ package no.gruppe13.hiof.taskmanager.adapter
 
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import no.gruppe13.hiof.taskmanager.R
-import no.gruppe13.hiof.taskmanager.data.Task
+import no.gruppe13.hiof.taskmanager.data.task.Task
 import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 
 class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback) {
 
-    private var position = 0
+    //private var position = 0
 
     class TaskViewHolder(private var binding: TaskListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {

@@ -10,23 +10,18 @@ import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.annotation.IdRes
-import androidx.core.text.set
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.*
-import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.CreateTaskCategorySpinnerAdapter
-import no.gruppe13.hiof.taskmanager.data.Task
+import no.gruppe13.hiof.taskmanager.data.task.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCreateTaskBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
-import java.util.*
 import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match

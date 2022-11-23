@@ -8,6 +8,8 @@ import androidx.room.TypeConverters
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
 import no.gruppe13.hiof.taskmanager.data.converters.Converters
+import no.gruppe13.hiof.taskmanager.data.task.Task
+import no.gruppe13.hiof.taskmanager.data.task.TaskDao
 
 @Database(entities = [Category:: class, Task:: class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

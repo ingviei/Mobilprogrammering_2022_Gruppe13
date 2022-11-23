@@ -1,14 +1,11 @@
 package no.gruppe13.hiof.taskmanager
 
-import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
@@ -18,8 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.adapter.TaskAdapter
-import no.gruppe13.hiof.taskmanager.data.Task
-import no.gruppe13.hiof.taskmanager.data.TaskDao
 import no.gruppe13.hiof.taskmanager.databinding.FragmentTodayBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
