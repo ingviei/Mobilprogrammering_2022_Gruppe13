@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
@@ -26,7 +27,6 @@ class TodayFragment : Fragment() {
     private var param2: String? = null*/
 
     private var _binding: FragmentTodayBinding? = null
-
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
@@ -62,10 +62,22 @@ class TodayFragment : Fragment() {
             }
         }
 
-        binding.btnAddTask.setOnClickListener {
+         binding.btnAddTask.setOnClickListener {
             val navController = it.findNavController()
             navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
         }
+
+       /* binding.btnDeleteTask.setOnClickListener {
+           Toast.makeText("" +
+                   "")
+        }*/
+
+        // Alternativ metode:
+        /*binding.btnAddTask.setOnClickListener {
+            val action = TodayFragmentDirections.actionTodayFragmentToNavigationCreateTask()
+            val navController = it.findNavController()
+            navController.navigate(action)
+        }*/
     }
 
     companion object {
@@ -85,6 +97,12 @@ class TodayFragment : Fragment() {
                 arguments = Bundle().apply {
                 }
             }
+    }
+
+    // Implementere denne i alle fragments med viewbinding
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

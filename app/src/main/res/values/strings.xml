@@ -42,5 +42,6 @@
     <string name="destination_create_category">Opprett kategori</string>
     <string name="from_date">Fra:</string>
     <string name="to_date">Til:</string>
+    <string name="delete_checked">Slett valgte gjøremål</string>
 
 </resources>
