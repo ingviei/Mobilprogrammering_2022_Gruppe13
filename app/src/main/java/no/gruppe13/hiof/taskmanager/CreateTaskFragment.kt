@@ -78,24 +78,7 @@ class CreateTaskFragment : Fragment() {
             }
         }
 
-        requireActivity().supportFragmentManager
-            .setFragmentResultListener(DatePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
-                val result = bundle.getString(DatePickerFragment.FORMATTED_DATE_KEY)
-                binding.dateInput.setText(result)
-            }
-
-        requireActivity().supportFragmentManager
-            .setFragmentResultListener(TimePickerFragment.REQUEST_KEY, this) { requestKey, bundle ->
-                val result = bundle.getString(TimePickerFragment.FORMATTED_TIME_KEY)
-                binding.timeInput.setText(result)
-            }
-
         val navController = findNavController();
-        // Lånt fra https://stackoverflow.com/questions/56624895/android-jetpack-navigation-component-result-from-dialog
-        /*navController.currentBackStackEntry?.savedStateHandle?.getLiveData("key")?.observe(
-            viewLifecycleOwner) { result: Date ->
-            // Do something with the result.
-        }*/
 
         binding.createTaskButton.setOnClickListener {
             val context = binding.createTaskButton.context

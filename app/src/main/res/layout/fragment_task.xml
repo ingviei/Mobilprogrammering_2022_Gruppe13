@@ -6,29 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TaskFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/task_recycler_view"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/task_header"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="225dp"
-        tools:context=".MainActivity"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:text="OPPGAVER"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
-    <TextView
-        android:id="@+id/test_text"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:text="Testing"
-        app:layout_constraintTop_toBottomOf="@id/task_recycler_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
+        android:layout_height="400dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task_header" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton_add_task_button"
