@@ -65,19 +65,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fixed_layout">
-
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Velg år:"
-                    app:layout_constraintStart_toStartOf="@id/week_layout_year_picker"
-                    app:layout_constraintBottom_toTopOf="@id/week_layout_year_picker" />-->
-                -
 
                 <NumberPicker
                     android:id="@+id/month_layout_year_picker"

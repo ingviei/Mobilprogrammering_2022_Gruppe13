@@ -70,7 +70,7 @@ class TaskFragment : Fragment() {
         dateTo = args.dateTo
         categoryId = args.categoryId
 
-        binding.taskHeader.setText(header)
+        binding.taskHeader.text = header
 
         recyclerView = binding.taskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

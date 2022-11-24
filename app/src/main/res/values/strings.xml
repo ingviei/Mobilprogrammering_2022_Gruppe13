@@ -10,26 +10,26 @@
     <string name="todoItem">Vaske bilen</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="gjoeremaal">Gjøremål:</string>
-    <string name="navn_paa_gjoeremaal">Navn på gjøremål</string>
-    <string name="dato">Dato:</string>
+    <string name="task">Gjøremål:</string>
+    <string name="task_name">Navn på gjøremål</string>
+    <string name="date">Dato:</string>
     <string name="category_comment">Kommentar:</string>
-    <string name="opprett_gjoeremaal">Opprett gjøremål</string>
-    <string name="velg">Velg</string>
-    <string name="frist_dato">Frist / dato</string>
-    <string name="gjoeremaal_input">Navn på gjøremål</string>
+    <string name="create_task">Opprett gjøremål</string>
+    <string name="choose">Velg</string>
+    <string name="deadline_date">Frist / dato</string>
+    <string name="task_input">Navn på gjøremål</string>
     <string name="add_comment">Legg til en kommentar</string>
-    <string name="velg_tid">Velg</string>
+    <string name="pick_time">Velg</string>
     <string name="tid">Tid:</string>
-    <string name="legg_til_klokkeslett">Legg til klokkeslett</string>
-    <string name="klokkeslett">Klokkeslett</string>
+    <string name="choose_time">Legg til klokkeslett</string>
+    <string name="hour">Klokkeslett</string>
     <string name="category">Kategori</string>
 
     <string name="name_of_category">Navn på kategori</string>
     <string name="create_category">Opprett kategori</string>
     <string name="legg_til_oppgave">Legg til oppgave</string>
     <string name="add_category">add_category</string>
-    <string name="velg_kategori">Velg kategori:</string>
+    <string name="choose_category">Velg kategori:</string>
     <string name="edit_category_text">Rediger kategori</string>
     <string name="delete_category_text">Slett kategori</string>
     <string name="update_category">Oppdater kategori</string>
@@ -43,5 +43,6 @@
     <string name="from_date">Fra:</string>
     <string name="to_date">Til:</string>
     <string name="delete_checked">Slett valgte gjøremål</string>
+    <string name="show_tasks">Vis oppgaver</string>
 
 </resources>

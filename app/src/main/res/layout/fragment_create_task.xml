@@ -11,7 +11,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/gjoeremaal"
+        android:text="@string/task"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/task_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/gjoeremaal_input"
+        android:hint="@string/task_input"
         android:inputType="text"
         android:minHeight="48dp"
         android:textColorHint="#757575"
@@ -32,7 +32,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/velg_kategori"
+        android:text="@string/choose_category"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_input" />
 
@@ -43,15 +43,13 @@
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pick_category" />
-    tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="328dp" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/dato"
+        android:text="@string/date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pick_category_spinner" />
 
@@ -59,9 +57,9 @@
         android:id="@+id/pick_date_create_task_btn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_margin="0dp"
+        android:layout_marginEnd="5dp"
         android:padding="0dp"
-        android:text="@string/velg"
+        android:text="@string/choose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/date"
         app:layout_constraintBottom_toBottomOf="@id/date_input"
@@ -71,9 +69,8 @@
         android:id="@+id/date_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:minHeight="48dp"
-        android:hint="@string/frist_dato"
+        android:hint="@string/deadline_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pick_date_create_task_btn"
         app:layout_constraintTop_toBottomOf="@id/date" />
@@ -83,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="@string/legg_til_klokkeslett"
+        android:hint="@string/choose_time"
         android:text="@string/tid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/date_input" />
@@ -92,9 +89,9 @@
         android:id="@+id/pick_time_create_task_btn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_margin="0dp"
+        android:layout_marginEnd="5dp"
         android:padding="0dp"
-        android:text="@string/velg_tid"
+        android:text="@string/pick_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/time"
         app:layout_constraintBottom_toBottomOf="@id/time_input"
@@ -106,7 +103,7 @@
         android:layout_height="wrap_content"
         android:inputType="time"
         android:minHeight="48dp"
-        android:hint="@string/klokkeslett"
+        android:hint="@string/hour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pick_time_create_task_btn"
         app:layout_constraintTop_toBottomOf="@id/time" />
@@ -136,11 +133,10 @@
         android:id="@+id/create_task_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/opprett_gjoeremaal"
+        android:text="opprett_gjøremål"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/comment_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-    //app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
