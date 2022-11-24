@@ -30,7 +30,9 @@ import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 class TaskFragment : Fragment() {
 
-    private lateinit var binding: FragmentTaskBinding
+    private var _binding: FragmentTaskBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var recyclerView: RecyclerView
 
     // Variable for title to display
@@ -58,7 +60,7 @@ class TaskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentTaskBinding.inflate(inflater, container, false)
+        _binding = FragmentTaskBinding.inflate(inflater, container, false)
         val view = binding.root
 
         val args: TaskFragmentArgs by navArgs()
@@ -115,6 +117,6 @@ class TaskFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //_binding = null
+        _binding = null
     }
 }

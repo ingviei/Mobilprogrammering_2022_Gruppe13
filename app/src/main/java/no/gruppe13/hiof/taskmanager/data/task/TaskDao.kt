@@ -1,8 +1,8 @@
-package no.gruppe13.hiof.taskmanager.data
+package no.gruppe13.hiof.taskmanager.data.task
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import no.gruppe13.hiof.taskmanager.data.Task
+import no.gruppe13.hiof.taskmanager.data.task.Task
 
 // https://developer.android.com/training/data-storage/room/async-queries
 // https://developer.android.com/reference/kotlin/androidx/room/Insert

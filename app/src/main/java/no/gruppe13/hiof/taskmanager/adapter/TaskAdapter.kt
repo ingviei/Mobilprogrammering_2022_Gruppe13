@@ -20,7 +20,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.R
-import no.gruppe13.hiof.taskmanager.data.Task
+import no.gruppe13.hiof.taskmanager.data.task.Task
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.databinding.TaskListItemBinding
 

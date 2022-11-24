@@ -2,7 +2,7 @@ package no.gruppe13.hiof.taskmanager.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import no.gruppe13.hiof.taskmanager.data.TaskDao
+import no.gruppe13.hiof.taskmanager.data.task.TaskDao
 import no.gruppe13.hiof.taskmanager.data.category.CategoryDao
 
 class TaskManagerViewModelFactory(
