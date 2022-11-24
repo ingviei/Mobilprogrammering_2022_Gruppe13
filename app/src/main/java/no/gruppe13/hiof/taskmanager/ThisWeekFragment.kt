@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import no.gruppe13.hiof.taskmanager.databinding.FragmentTaskBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentThisWeekBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -70,7 +69,6 @@ class ThisWeekFragment : Fragment() {
                 else -> false
             }
         }
-
         return view
     }
 
