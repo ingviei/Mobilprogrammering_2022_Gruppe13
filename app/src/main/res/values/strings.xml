@@ -27,7 +27,6 @@
 
     <string name="name_of_category">Navn på kategori</string>
     <string name="create_category">Opprett kategori</string>
-    <string name="legg_til_oppgave">Legg til oppgave</string>
     <string name="add_category">add_category</string>
     <string name="choose_category">Velg kategori:</string>
     <string name="edit_category_text">Rediger kategori</string>
@@ -44,5 +43,6 @@
     <string name="to_date">Til:</string>
     <string name="delete_checked">Slett valgte gjøremål</string>
     <string name="show_tasks">Vis oppgaver</string>
+    <string name="make_task">Opprett gjøremål</string>
 
 </resources>
