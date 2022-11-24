@@ -25,7 +25,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class CreateCategoryFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private lateinit var binding: FragmentCreateCategoryBinding
+    private var _binding: FragmentCreateCategoryBinding? = null
+    private val binding get() = _binding!!
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -42,7 +44,7 @@ class CreateCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCreateCategoryBinding.inflate(layoutInflater)
+        _binding = FragmentCreateCategoryBinding.inflate(layoutInflater)
         val view = binding.root
 
         binding.createCategoryButton.setOnClickListener {
@@ -84,4 +86,11 @@ class CreateCategoryFragment : Fragment() {
                 }
             }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
 }

@@ -106,7 +106,6 @@ class TodayFragment : Fragment() {
             }
     }
 
-    // Implementere denne i alle fragments med viewbinding
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

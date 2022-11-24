@@ -16,6 +16,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
+import no.gruppe13.hiof.taskmanager.databinding.FragmentTodayBinding
 import no.gruppe13.hiof.taskmanager.databinding.FragmentUpdateCategoryBinding
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
@@ -32,8 +33,10 @@ private const val ARG_CATEGORY_ID = UpdateCategoryFragment.ARG_CATEGORY_ID
 class UpdateCategoryFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var categoryId: Int? = null
-    private lateinit var binding: FragmentUpdateCategoryBinding
+    private var _binding: FragmentUpdateCategoryBinding? = null
     private var category: Category? = null
+
+    private val binding get() = _binding!!
 
     private val viewModel: TaskManagerViewModel by activityViewModels {
         TaskManagerViewModelFactory(
@@ -56,7 +59,7 @@ class UpdateCategoryFragment : Fragment() {
         val categoryId = arguments?.let { UpdateCategoryFragmentArgs.fromBundle(it).categoryId }
         // Inflate the layout for this fragment
 
-        binding = FragmentUpdateCategoryBinding.inflate(layoutInflater, container, false)
+       _binding = FragmentUpdateCategoryBinding.inflate(layoutInflater, container, false)
         val view = binding.root
 
         GlobalScope.launch(Dispatchers.IO) {
@@ -108,5 +111,10 @@ class UpdateCategoryFragment : Fragment() {
             }
 
         const val ARG_CATEGORY_ID = "param_category_id"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

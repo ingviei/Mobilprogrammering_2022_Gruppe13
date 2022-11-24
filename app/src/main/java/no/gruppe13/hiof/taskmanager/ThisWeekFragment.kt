@@ -25,7 +25,9 @@ class ThisWeekFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentThisWeekBinding
+
+    private var _binding: FragmentThisWeekBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,7 @@ class ThisWeekFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentThisWeekBinding.inflate(inflater, container, false)
+        _binding = FragmentThisWeekBinding.inflate(inflater, container, false)
         val view = binding.root
 
         val navView: BottomNavigationView = binding.navView
@@ -90,5 +92,10 @@ class ThisWeekFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -38,7 +38,9 @@ class CreateTaskFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentCreateTaskBinding
+
+    private var _binding: FragmentCreateTaskBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +54,7 @@ class CreateTaskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCreateTaskBinding.inflate(layoutInflater)
+        _binding = FragmentCreateTaskBinding.inflate(layoutInflater)
         //setContentView(binding.root)
         val view = binding.root
 
@@ -186,5 +188,10 @@ class CreateTaskFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
