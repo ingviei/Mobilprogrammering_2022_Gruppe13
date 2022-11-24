@@ -69,15 +69,15 @@ class TodayFragment : Fragment() {
             navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
         }
 
-       binding.btnDeleteTask.setOnClickListener {
+       /*binding.btnDeleteTask.setOnClickListener {
            CoroutineScope(view.context).launch(Dispatchers.IO) {
                lifecycle.coroutineScope.launch {
                    viewModel.deleteCompleted()
                    Log.d("Slett", "Det slettes")
-               }
+               }*/
            }
 
-        }
+
 
         // Alternativ metode:
         /*binding.btnAddTask.setOnClickListener {
@@ -85,7 +85,7 @@ class TodayFragment : Fragment() {
             val navController = it.findNavController()
             navController.navigate(action)
         }*/
-    }
+
 
     companion object {
         /**
