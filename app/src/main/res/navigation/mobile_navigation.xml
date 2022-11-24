@@ -38,7 +38,18 @@
         android:id="@+id/navigation_calendar"
         android:name="no.gruppe13.hiof.taskmanager.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar">
+        <action
+            android:id="@+id/action_calendarFragment_to_navigation_date_picker"
+            app:destination="@id/navigation_date_picker"
+            >
+            <argument
+                android:name="return_key"
+                android:defaultValue='"dummy"' />
+        </action>
+
+   </fragment>
+
    <fragment
        android:id="@+id/categoryFragment"
        android:name="no.gruppe13.hiof.taskmanager.CategoryFragment"
@@ -120,7 +131,12 @@
         android:id="@+id/navigation_date_picker"
         android:name="no.gruppe13.hiof.taskmanager.DatePickerFragment"
         android:label="@string/date_picker"
-        tools:layout="@layout/fragment_date_picker" />
+        tools:layout="@layout/fragment_date_picker" >
+        <argument
+            android:name="return_key"
+            app:argType="string"
+            android:defaultValue='"picked_date"' />
+    </dialog>
 
     <dialog
         android:id="@+id/navigation_time_picker"

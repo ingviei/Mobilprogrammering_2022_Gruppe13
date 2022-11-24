@@ -4,15 +4,12 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.widget.DatePicker
-import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
-import java.text.DateFormat
+import androidx.navigation.fragment.navArgs
 import java.util.*
 
 /**
@@ -21,6 +18,8 @@ import java.util.*
  */
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
     private val c = Calendar.getInstance()
+    private lateinit var returnKey: String
+    private val args: DatePickerFragmentArgs by navArgs()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current date as the default date in the picker
@@ -28,6 +27,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 
+        returnKey = args.returnKey
         // Create a new instance of DatePickerDialog and return it
         return DatePickerDialog(requireContext(), this, year, month, day)
     }
@@ -35,7 +35,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
         val dateString: String = String.format("%04d-%02d-%02d", year, month + 1, day);
 
-        setNavigationResult("picked_date", dateString)
+        setNavigationResult(returnKey, dateString)
     }
 
     override fun onAttach(context: Context) {

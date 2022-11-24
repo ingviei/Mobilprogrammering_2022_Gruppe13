@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Kode tatt fra https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/ -->
+<!-- Kode lånt fra https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/ -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/calendar_card_view"
+        android:id="@+id/week_calendar_card_view"
         style="@style/Base.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/calendar_card_view"
+            app:layout_constraintBottom_toBottomOf="@id/week_calendar_card_view"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.511"
             tools:layout_editor_absoluteX="-55dp" >
@@ -46,12 +46,12 @@
                     android:textSize="16sp"
                     android:text="VELG UKE"
                     app:layout_constraintStart_toStartOf="@id/fixed_layout"
-                    app:layout_constraintTop_toTopOf="@id/arrow_button"
-                    app:layout_constraintBottom_toBottomOf="@id/arrow_button"
+                    app:layout_constraintTop_toTopOf="@id/week_arrow_button"
+                    app:layout_constraintBottom_toBottomOf="@id/week_arrow_button"
                     />
 
                 <ImageButton
-                    android:id="@+id/arrow_button"
+                    android:id="@+id/week_arrow_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_expand_more_24"
@@ -61,11 +61,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/hidden_view"
+                android:id="@+id/week_hidden_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,13 +93,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.5"/>
-
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Velg uke:"
-                    app:layout_constraintStart_toStartOf="@id/week_layout_week_picker"
-                    app:layout_constraintBottom_toTopOf="@id/week_layout_week_picker" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
