@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -46,6 +48,7 @@ class TodayFragment : Fragment() {
     ): View? {
         _binding = FragmentTodayBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,28 +67,28 @@ class TodayFragment : Fragment() {
             }
         }
 
-         binding.btnAddTask.setOnClickListener {
-            val navController = it.findNavController()
-            navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
+        val addTaskBtn = binding.floatingActionButtonAddTaskButton
+        addTaskBtn.setOnClickListener{
+            val action = TodayFragmentDirections.actionTodayFragmentToNavigationCreateTask()
+            findNavController().navigate(action)
         }
 
-       /*binding.btnDeleteTask.setOnClickListener {
-           CoroutineScope(view.context).launch(Dispatchers.IO) {
-               lifecycle.coroutineScope.launch {
-                   viewModel.deleteCompleted()
-                   Log.d("Slett", "Det slettes")
-               }*/
-           }
+        val navView: BottomNavigationView = binding.navView
 
-
-
-        // Alternativ metode:
-        /*binding.btnAddTask.setOnClickListener {
-            val action = TodayFragmentDirections.actionTodayFragmentToNavigationCreateTask()
-            val navController = it.findNavController()
-            navController.navigate(action)
-        }*/
-
+        navView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    findNavController().navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    findNavController().navigate(R.id.navigation_calendar)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 
     companion object {
         /**
