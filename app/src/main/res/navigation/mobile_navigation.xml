@@ -135,7 +135,7 @@
         <argument
             android:name="return_key"
             app:argType="string"
-            android:defaultValue='"picked_date"' />
+            android:defaultValue='picked_date' />
     </dialog>
 
     <dialog

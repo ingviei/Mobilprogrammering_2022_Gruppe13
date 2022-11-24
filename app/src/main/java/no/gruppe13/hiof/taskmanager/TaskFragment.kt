@@ -14,21 +14,14 @@ import no.gruppe13.hiof.taskmanager.ui.home.HomeFragmentDirections
 
 // TODO: Rename parameter arguments, choose names that match
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TaskFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class TaskFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }*/
+
     }
 
     override fun onCreateView(
@@ -51,17 +44,7 @@ class TaskFragment : Fragment() {
 
         navView.setupWithNavController(navController)
 
-        // ToDo: I dette fragmentet burde begge menyvalgene
-        //  se ut som om man kan velge dem
-        /*
-        navView.menu.findItem(R.id.nav_home).isEnabled = true
-        navView.menu.findItem(R.id.nav_calendar).isEnabled = true
-        navView.menu.findItem(R.id.nav_home).isCheckable = true
-        navView.menu.findItem(R.id.nav_calendar).isCheckable = true
-        navView.selectedItemId = R.id.nav_calendar
-         */
-
-        navView.setOnItemSelectedListener { item ->
+         navView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.nav_home -> {
                     findNavController().navigate(R.id.navigation_home)
@@ -78,23 +61,4 @@ class TaskFragment : Fragment() {
         return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TaskFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TaskFragment().apply {
-                /*arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }*/
-            }
-    }
 }
