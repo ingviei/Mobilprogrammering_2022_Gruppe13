@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        val todayButton = binding.btnToday //findViewById<Button>(R.id.btnToday)
+        val todayButton = binding.btnToday
         todayButton.setOnClickListener{
             val action = HomeFragmentDirections.actionNavigationHomeToTodayFragment()
             findNavController().navigate(action)
@@ -85,10 +85,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-/*        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
         return root
     }
 

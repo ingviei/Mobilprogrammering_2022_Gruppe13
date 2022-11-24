@@ -25,9 +25,6 @@ import no.gruppe13.hiof.taskmanager.ui.home.HomeFragmentDirections
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModel
 import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-
-
 class TaskFragment : Fragment() {
 
     private var _binding: FragmentTaskBinding? = null

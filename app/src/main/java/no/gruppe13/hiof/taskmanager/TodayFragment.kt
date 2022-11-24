@@ -27,9 +27,6 @@ import no.gruppe13.hiof.taskmanager.viewmodels.TaskManagerViewModelFactory
 
 class TodayFragment : Fragment() {
 
-   /* private var param1: String? = null
-    private var param2: String? = null*/
-
     private var _binding: FragmentTodayBinding? = null
     private val binding get() = _binding!!
 

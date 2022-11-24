@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This code is HIGHLY influenced by Andoid's tutorial:
+<!-- This code is largely influenced by Android's tutorial:
  https://developer.android.com/codelabs/basic-android-kotlin-training-display-list-cards#2-->
 
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"

@@ -11,5 +11,4 @@ data class Category (
     @NonNull
     var title : String,
     var description : String
-    // ToDo: Decide if vars should be vals
 )

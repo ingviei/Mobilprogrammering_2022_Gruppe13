@@ -90,7 +90,6 @@ class CreateTaskFragment : Fragment() {
             val selectedCategory: Category = binding.pickCategorySpinner.selectedItem as Category
             val task = Task(
                 binding.taskInput.text.toString(),
-                //ToDo: Fix inconsistent data types PK Category vs FK Task->Category
                 selectedCategory.id.toLong(),
                 binding.dateInput.text.toString(),
                 binding.timeInput.text.toString(),
@@ -130,21 +129,21 @@ class CreateTaskFragment : Fragment() {
             "picked_time") { setTimeText(it) }
     }
 
-    fun showDatePicker(v: View) {
+    private fun showDatePicker(v: View) {
         val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationDatePicker()
         findNavController().navigate(action)
     }
 
-    fun showTimePicker(v: View) {
+    private fun showTimePicker(v: View) {
         val action = CreateTaskFragmentDirections.actionNavigationCreateTaskToNavigationTimePicker()
         findNavController().navigate(action)
     }
 
-    fun setDateText(dateString: String) {
+    private fun setDateText(dateString: String) {
         binding.dateInput.setText(dateString)
     }
 
-    fun setTimeText(timeString: String) {
+    private fun setTimeText(timeString: String) {
         binding.timeInput.setText(timeString)
     }
 

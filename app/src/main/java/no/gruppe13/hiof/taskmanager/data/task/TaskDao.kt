@@ -26,7 +26,7 @@ interface TaskDao {
 
     @Query("SELECT * FROM task ORDER BY date ASC, time ASC")
     fun getAllTasks(): Flow<List<Task>>
-//    Bytte ut med fun getAllTasks(): Array<Task> eller List<Task> ??? Ref. https://developer.android.com/training/data-storage/room/accessing-data
+//    Bytte ut med fun getAllTasks(): Array<Task> eller List<Task> ??? Ref. https://developer.aandroid.com/training/data-storage/room/accessing-data
 
     @Query("SELECT * FROM task WHERE date >= :fromDate ORDER BY date ASC, time ASC")
     fun getTasksFromDate(fromDate: String): Flow<List<Task>>
