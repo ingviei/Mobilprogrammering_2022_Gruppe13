@@ -96,7 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:hint="Åå / mm / dd"
+                    android:hint="åååå-mm-dd"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pick_from_interval" />
 
@@ -135,7 +135,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:hint="Åå / mm / dd"
+                    android:hint="åååå-mm-dd"
                     app:layout_constraintTop_toBottomOf="@id/pick_to_interval"
                     app:layout_constraintLeft_toLeftOf="@id/interval_guideline"/>
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.NumberPicker.OnValueChangeListener
 import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
@@ -21,9 +22,14 @@ import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import no.gruppe13.hiof.taskmanager.DatePickerFragment
+import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.databinding.FragmentCalendarBinding
+import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.YearMonth
+import java.time.format.DateTimeFormatter
 import java.time.temporal.IsoFields
+import java.time.temporal.WeekFields
 import java.util.*
 
 
@@ -141,6 +147,22 @@ class CalendarFragment : Fragment() {
         weekWeekPicker.maxValue = lastWeekOfYear
         weekWeekPicker.value = currentWeek
 
+        // Set the last week of year when different year selected
+        weekYearPicker.setOnValueChangedListener(OnValueChangeListener { picker, oldVal, newVal ->
+            val currentYear = newVal
+            val weekOfLastDate = LocalDate.of(currentYear, 12, 31).get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)
+            val weekOfPrelastWeek = LocalDate.of(currentYear, 12, 24).get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)
+            var lastWeekOfYear: Int
+            // Find out if week of 31/12 has higher week number than the week before
+            if (weekOfLastDate > weekOfPrelastWeek) {
+                lastWeekOfYear = weekOfLastDate
+            } else {
+                lastWeekOfYear = weekOfPrelastWeek
+            }
+            val weekWeekPicker = requireActivity().findViewById(no.gruppe13.hiof.taskmanager.R.id.week_layout_week_picker) as NumberPicker
+            weekWeekPicker.maxValue = lastWeekOfYear
+        })
+
         val monthYearPicker = requireActivity().findViewById(no.gruppe13.hiof.taskmanager.R.id.month_layout_year_picker) as NumberPicker
         monthYearPicker.minValue = currentYear - 1
         monthYearPicker.maxValue = currentYear + 6
@@ -169,6 +191,57 @@ class CalendarFragment : Fragment() {
         getNavigationResult<String>(
             Navigation.findNavController(this.requireView()).currentDestination!!.id,
             "TO_DATE") { setDateToText(it) }
+
+        val viewTasksButton = binding.viewTasksButton
+
+        viewTasksButton.setOnClickListener() {
+            viewTasks(it)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun viewTasks(view: View) {
+        if (weekHiddenView.visibility == View.VISIBLE) {
+            val week: Long = requireActivity().findViewById<NumberPicker>(R.id.week_layout_week_picker).value.toLong()
+            val year: Long = requireActivity().findViewById<NumberPicker>(R.id.week_layout_year_picker).value.toLong()
+            // Calculate first date of the week
+            val fromDate = LocalDate.now()
+                .with(WeekFields.ISO.weekBasedYear(), year)
+                .with(WeekFields.ISO.weekOfWeekBasedYear(), week)
+                .with(WeekFields.ISO.dayOfWeek(), DayOfWeek.MONDAY.getValue().toLong());
+
+            // Calculate last date of the week
+            val toDate = fromDate.plusDays(6)
+            val header = "UKE " + week + " - " + year
+            val categoryId = -1
+            val action = CalendarFragmentDirections.actionNavigationCalendarToNavigationTasks(fromDate.format(
+                DateTimeFormatter.ISO_DATE), toDate.format(DateTimeFormatter.ISO_DATE), categoryId, header)
+            findNavController().navigate(action)
+        } else if (monthHiddenView.visibility == View.VISIBLE) {
+            val month: Int = requireActivity().findViewById<NumberPicker>(R.id.month_layout_month_picker).value
+            val year: Int = requireActivity().findViewById<NumberPicker>(R.id.month_layout_year_picker).value
+
+            // Calculate first date of the week
+            val fromMonth = YearMonth.from(LocalDate.now().withYear(year).withMonth(month).withDayOfMonth(1))
+            val fromDate = fromMonth.atDay(1)
+
+            // Calculate last date of the week
+            val toDate = fromMonth.atEndOfMonth()
+            val header = "MÅNED " + year + "-" + month
+            val categoryId = -1
+            val action = CalendarFragmentDirections.actionNavigationCalendarToNavigationTasks(fromDate.format(
+                DateTimeFormatter.ISO_DATE), toDate.format(DateTimeFormatter.ISO_DATE), categoryId, header)
+            findNavController().navigate(action)
+
+        } else if (intervalHiddenView.visibility == View.VISIBLE) {
+            val fromDate = requireActivity().findViewById<EditText>(R.id.pick_from_interval_input).text.toString()
+            val toDate = requireActivity().findViewById<EditText>(R.id.pick_to_interval_input).text.toString()
+
+            val header = "OPPGAVER I PERIODEN"
+            val categoryId = -1
+            val action = CalendarFragmentDirections.actionNavigationCalendarToNavigationTasks(fromDate, toDate, categoryId, header)
+            findNavController().navigate(action)
+        }
     }
 
     fun setDateFromText(dateString: String) {

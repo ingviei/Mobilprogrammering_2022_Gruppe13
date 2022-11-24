@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_home" >
 
    <fragment
         android:id="@+id/navigation_home"
@@ -38,15 +38,14 @@
         android:id="@+id/navigation_calendar"
         android:name="no.gruppe13.hiof.taskmanager.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
-        tools:layout="@layout/fragment_calendar">
+        tools:layout="@layout/fragment_calendar" >
         <action
             android:id="@+id/action_calendarFragment_to_navigation_date_picker"
-            app:destination="@id/navigation_date_picker"
-            >
-            <argument
-                android:name="return_key"
-                android:defaultValue='"dummy"' />
+            app:destination="@id/navigation_date_picker" >
         </action>
+       <action
+           android:id="@+id/action_navigation_calendar_to_navigation_tasks"
+           app:destination="@id/navigation_tasks" />
 
    </fragment>
 
@@ -92,6 +91,21 @@
         <action
             android:id="@+id/action_navigation_tasks_to_navigation_create_task"
             app:destination="@id/navigation_create_task" />
+        <argument
+            android:name="header"
+            app:argType="string"
+            android:defaultValue="Oppgaver" />
+        <argument
+            android:name="dateFrom"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="dateTo"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
     </fragment>
 
     <fragment

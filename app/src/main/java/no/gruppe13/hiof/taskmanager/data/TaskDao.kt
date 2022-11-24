@@ -28,6 +28,18 @@ interface TaskDao {
     fun getAllTasks(): Flow<List<Task>>
 //    Bytte ut med fun getAllTasks(): Array<Task> eller List<Task> ??? Ref. https://developer.android.com/training/data-storage/room/accessing-data
 
+    @Query("SELECT * FROM task WHERE date >= :fromDate")
+    fun getTasksFromDate(fromDate: String): Flow<List<Task>>
+
+    @Query("SELECT * FROM task WHERE date <= :toDate")
+    fun getTasksToDate(toDate: String): Flow<List<Task>>
+
+    @Query("SELECT * FROM task WHERE date BETWEEN :fromDate AND :toDate")
+    fun getTasksBetweenDates(fromDate: String, toDate: String): Flow<List<Task>>
+
+    @Query("SELECT * FROM task WHERE category_id = :categoryId")
+    fun getTasksByCategoryId(categoryId: Int): Flow<List<Task>>
+
     @Query("SELECT * FROM task WHERE id = :taskId")
     fun getTask(taskId: Int): Flow<Task>
 

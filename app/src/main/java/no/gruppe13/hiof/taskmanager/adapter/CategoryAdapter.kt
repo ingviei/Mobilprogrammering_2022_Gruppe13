@@ -25,8 +25,10 @@ import no.gruppe13.hiof.taskmanager.UpdateCategoryFragment
 import no.gruppe13.hiof.taskmanager.data.TaskDatabase
 import no.gruppe13.hiof.taskmanager.data.category.Category
 import no.gruppe13.hiof.taskmanager.databinding.CategoryListItemBinding
+import no.gruppe13.hiof.taskmanager.ui.calendar.CalendarFragmentDirections
 import no.gruppe13.hiof.taskmanager.ui.home.HomeFragmentDirections
 import java.nio.file.Files.delete
+import java.time.format.DateTimeFormatter
 
 //class CategoryAdapter(/*private val onItemClicked: (Category) -> Unit*/) :
 class CategoryAdapter(private val clickListener: View.OnClickListener) :
@@ -72,8 +74,19 @@ class CategoryAdapter(private val clickListener: View.OnClickListener) :
             binding.categoryName.text = category.title
             categoryId = category.id
 
-            itemView.setOnClickListener(clickListener)
+            val categoryClickListener: CategoryOnClicked = CategoryOnClicked(this.itemView, category)
+            //itemView.setOnClickListener(clickListener)
+            itemView.setOnClickListener(categoryClickListener)
             itemView.setOnCreateContextMenuListener(this)
+        }
+
+        class CategoryOnClicked(private val view: View,
+                                private val category: Category) : View.OnClickListener {
+            override fun onClick(view: View) {
+                val header = category.title
+                val action = HomeFragmentDirections.actionNavigationHomeToNavigationTasks(null, null, category.id, header)
+                view.findNavController().navigate(action)
+            }
         }
 
         override fun onCreateContextMenu(
@@ -127,8 +140,6 @@ class CategoryAdapter(private val clickListener: View.OnClickListener) :
             return false
         }
     }
-
-
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Category>() {
