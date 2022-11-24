@@ -2,6 +2,7 @@ package no.gruppe13.hiof.taskmanager
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -67,10 +69,15 @@ class TodayFragment : Fragment() {
             navController.navigate(R.id.action_todayFragment_to_navigation_create_task)
         }
 
-       /* binding.btnDeleteTask.setOnClickListener {
-           Toast.makeText("" +
-                   "")
-        }*/
+       binding.btnDeleteTask.setOnClickListener {
+           CoroutineScope(view.context).launch(Dispatchers.IO) {
+               lifecycle.coroutineScope.launch {
+                   viewModel.deleteCompleted()
+                   Log.d("Slett", "Det slettes")
+               }
+           }
+
+        }
 
         // Alternativ metode:
         /*binding.btnAddTask.setOnClickListener {

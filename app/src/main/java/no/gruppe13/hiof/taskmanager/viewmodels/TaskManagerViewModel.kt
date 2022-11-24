@@ -13,6 +13,8 @@ class TaskManagerViewModel(private val taskDao: TaskDao, private val categoryDao
     fun allTasks(): Flow<List<Task>> = taskDao.getAllTasks()
     fun allCategories(): Flow<List<Category>> = categoryDao.getAll()
     fun getCategory(categoryId: Int) = categoryDao.getCategory(categoryId)
+    fun deleteCompleted() = taskDao.deleteCompleted()
+
     //fun getTask(taskId: Int) = taskDao.getTask(taskId)
 
     val selectedDateTime: MutableLiveData<Date> = MutableLiveData()

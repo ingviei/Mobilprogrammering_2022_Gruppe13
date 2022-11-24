@@ -52,6 +52,11 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         }
     }
 
+    private fun deleteCheckedItems() {
+
+        }
+
+
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val item = getItem(position)
@@ -62,7 +67,6 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
 
         val db = TaskDatabase.getDatabase(holder.itemView.context)
 
-
         title.text = item.title
         checked.isChecked = item.completed
 
@@ -72,6 +76,9 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
             item.completed = !item.completed
             CoroutineScope(Dispatchers.IO).launch { db.taskDao().updateTask(item) }
         }
+/*       if(item.completed)
+            CoroutineScope(Dispatchers.IO).launch { db.taskDao().deleteCompleted() }*/
+
     }
 
 
