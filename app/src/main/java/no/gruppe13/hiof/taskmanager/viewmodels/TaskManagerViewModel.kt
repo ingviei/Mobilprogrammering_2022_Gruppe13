@@ -11,6 +11,19 @@ import java.util.*
 
 class TaskManagerViewModel(private val taskDao: TaskDao, private val categoryDao: CategoryDao): ViewModel() {
     fun allTasks(): Flow<List<Task>> = taskDao.getAllTasks()
+    fun getFilteredTasks(dateFrom: String?, dateTo: String?, categoryId: Int): Flow<List<Task>> {
+        if (!(dateFrom.isNullOrEmpty() || dateTo.isNullOrEmpty())) {
+            return taskDao.getTasksBetweenDates(dateFrom, dateTo)
+        } else if (!dateFrom.isNullOrEmpty()) {
+            return taskDao.getTasksFromDate(dateFrom)
+        } else if (!dateTo.isNullOrEmpty()) {
+            return taskDao.getTasksToDate(dateTo)
+        } else if (categoryId >= 0) {
+            return taskDao.getTasksByCategoryId(categoryId)
+        } else { // No filter
+            return taskDao.getAllTasks()
+        }
+    }
     fun allCategories(): Flow<List<Category>> = categoryDao.getAll()
     fun getCategory(categoryId: Int) = categoryDao.getCategory(categoryId)
     fun deleteCompleted() = taskDao.deleteCompleted()

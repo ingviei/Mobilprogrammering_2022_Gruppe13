@@ -1,12 +1,14 @@
 package no.gruppe13.hiof.taskmanager.ui.home
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -18,6 +20,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import no.gruppe13.hiof.taskmanager.R
 import no.gruppe13.hiof.taskmanager.databinding.FragmentHomeBinding
+import java.time.format.DateTimeFormatter
+import java.time.temporal.TemporalAmount
 
 class HomeFragment : Fragment() {
 
@@ -25,6 +29,7 @@ class HomeFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,7 +74,14 @@ class HomeFragment : Fragment() {
 
         val thisWeekButton = binding.btnThisWeek
         thisWeekButton.setOnClickListener{
-            val action = HomeFragmentDirections.actionNavigationHomeToNavigationTasks()
+            val header = "DENNE UKA"
+            var currentDate = java.time.LocalDate.now()
+            var endDate = currentDate.plusDays(6)
+
+            val dateFrom:String = currentDate.format(DateTimeFormatter.ISO_DATE)
+            val dateTo:String = endDate.format(DateTimeFormatter.ISO_DATE)
+            val categoryId = -1
+            val action = HomeFragmentDirections.actionNavigationHomeToNavigationTasks(dateFrom, dateTo, categoryId, header)
             findNavController().navigate(action)
         }
 
