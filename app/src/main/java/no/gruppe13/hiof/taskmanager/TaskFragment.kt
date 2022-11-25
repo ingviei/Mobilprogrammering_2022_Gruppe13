@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -87,6 +88,11 @@ class TaskFragment : Fragment() {
         addTaskBtn.setOnClickListener{
             val action = TaskFragmentDirections.actionNavigationTasksToNavigationCreateTask()
             findNavController().navigate(action)
+        }
+
+        val deleteBtn = binding.btnDeleteTask
+        deleteBtn.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch { viewModel.deleteCompleted() }
         }
 
         val navView: BottomNavigationView = binding.navView

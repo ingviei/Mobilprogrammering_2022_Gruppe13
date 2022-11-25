@@ -28,7 +28,7 @@ class TaskManagerViewModel(private val taskDao: TaskDao, private val categoryDao
     fun getCategory(categoryId: Int) = categoryDao.getCategory(categoryId)
     fun deleteCompleted() = taskDao.deleteCompleted()
 
-    //fun getTask(taskId: Int) = taskDao.getTask(taskId)
+    //fun getTasksToday(date: String) = taskDao.getTaskToday(date)
 
     val selectedDateTime: MutableLiveData<Date> = MutableLiveData()
 }

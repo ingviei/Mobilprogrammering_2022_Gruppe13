@@ -70,6 +70,11 @@ class TodayFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        val deleteBtn = binding.btnDeleteTask
+        deleteBtn.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch { viewModel.deleteCompleted() }
+        }
+
         val navView: BottomNavigationView = binding.navView
 
         navView.setOnItemSelectedListener { item ->

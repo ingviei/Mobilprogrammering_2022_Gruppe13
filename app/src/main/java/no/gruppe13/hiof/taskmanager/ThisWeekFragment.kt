@@ -10,16 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import no.gruppe13.hiof.taskmanager.databinding.FragmentThisWeekBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ThisWeekFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ThisWeekFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -40,7 +33,6 @@ class ThisWeekFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentThisWeekBinding.inflate(inflater, container, false)
         val view = binding.root
 

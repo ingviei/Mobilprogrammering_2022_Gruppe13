@@ -52,9 +52,6 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
         }
     }
 
-    private fun deleteCheckedItems() {
-
-        }
 
 
 
@@ -76,11 +73,8 @@ class TaskAdapter() : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback
             item.completed = !item.completed
             CoroutineScope(Dispatchers.IO).launch { db.taskDao().updateTask(item) }
         }
-/*       if(item.completed)
-            CoroutineScope(Dispatchers.IO).launch { db.taskDao().deleteCompleted() }*/
 
     }
-
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Task>() {

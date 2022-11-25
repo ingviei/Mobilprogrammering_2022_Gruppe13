@@ -13,10 +13,6 @@ import no.gruppe13.hiof.taskmanager.data.task.Task
 interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTask(task: Task)
-    // suspend is for making the database asynchronous, One shot queries
-    // Legge på vararg?
-
-    //Bruke update og delete på denne måten? se annen delete metode lenger ned
 
     @Update
     suspend fun updateTask(task: Task)
@@ -26,7 +22,6 @@ interface TaskDao {
 
     @Query("SELECT * FROM task ORDER BY date ASC, time ASC")
     fun getAllTasks(): Flow<List<Task>>
-//    Bytte ut med fun getAllTasks(): Array<Task> eller List<Task> ??? Ref. https://developer.aandroid.com/training/data-storage/room/accessing-data
 
     @Query("SELECT * FROM task WHERE date >= :fromDate ORDER BY date ASC, time ASC")
     fun getTasksFromDate(fromDate: String): Flow<List<Task>>
@@ -36,6 +31,9 @@ interface TaskDao {
 
     @Query("SELECT * FROM task WHERE date BETWEEN :fromDate AND :toDate ORDER BY date ASC, time ASC")
     fun getTasksBetweenDates(fromDate: String, toDate: String): Flow<List<Task>>
+
+//    @Query("SELECT * FROM task WHERE date = :fromDate")
+//    fun getTaskToday(fromDate: String): Flow<List<Task>>
 
     @Query("SELECT * FROM task WHERE category_id = :categoryId ORDER BY date ASC, time ASC")
     fun getTasksByCategoryId(categoryId: Int): Flow<List<Task>>
